@@ -29,6 +29,7 @@
           alt="Your Name"
         ></b-form-input>
       </b-form-group>
+      <b-form-group label="Your Message:" label-for="textarea-default">
       <b-form-textarea
         name="name"
         class="contact-form-input"
@@ -36,6 +37,7 @@
         placeholder="Your Message"
         alt="Your Message"
       ></b-form-textarea>
+      </b-form-group>
       <b-button class="contact-button" type="submit" variant="primary">Submit</b-button>
     </b-form>
   </div>
