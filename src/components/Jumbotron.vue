@@ -1,0 +1,120 @@
+<template>
+  <div>
+    <b-jumbotron id="jumboTitle" fluid>
+      <template slot="header">Nick Leslie</template>
+      <template slot="lead">Fullstack Web Developer | Mobile Developer</template>
+      <b-button class="project-card-button" href="#" v-scroll-to="'#projects'">See Projects</b-button>
+      <hr>
+      <div class="jumbotron-button-container">
+      <b-button
+        class="project-card-button animated"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-out"
+        data-aos-once="true"
+        href="https://github.com/ncpleslie"
+        v-b-tooltip.hover.bottom
+        title="Github"
+      >
+        <img src="../assets/github.png" alt="Go to my Github Repo">
+      </b-button>
+      <b-button
+        class="project-card-button"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-out"
+        data-aos-once="true"
+        href="https://www.linkedin.com/in/nicholas-leslie/"
+        v-b-tooltip.hover.bottom
+        title="LinkedIn"
+      >
+        <img src="../assets/linkedin.png" alt="Go to my LinkedIn">
+      </b-button>
+      <b-button
+        class="project-card-button"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-out"
+        data-aos-once="true"
+        href="NickLeslieCV.pdf"
+        v-b-tooltip.hover.bottom
+        title="Resume/CV"
+      >
+        <img src="../assets/resume.png" alt="Go to my Resume Or CV">
+      </b-button>
+      <b-button
+        class="project-card-button"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-out"
+        data-aos-once="true"
+        href="#"
+        v-scroll-to="'#contact'"
+        v-b-tooltip.hover.bottom
+        title="Contact"
+      >
+        <img src="../assets/email.png" alt="Contact Me">
+      </b-button>
+      </div>
+    </b-jumbotron>
+  </div>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style scoped>
+.jumbotron {
+  color: #fff;
+  background-color: #33333d;
+  height: 100vh;
+  margin-bottom: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-card-button {
+  border-radius: 0px;
+  border: 2px solid #045d56;
+  background-color: #27272f !important;
+}
+
+.jumbotron-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -1rem;
+}
+
+.jumbotron-button-container .project-card-button {
+  border-radius: 0px;
+  border: 2px solid #045d56;
+  background-color: #27272f !important;
+  margin-left: 1rem;
+}
+
+.project-card-button:hover {
+  border: 2px solid #1eb980;
+  background-color: #33333d !important;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
+  -moz-box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
+  box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
+}
+
+.project-card-button:active {
+  background-color: #27272f !important;
+}
+
+.project-card-button:focus {
+  background-color: #27272f !important;
+}
+
+.project-card-button img {
+  filter: invert(100%);
+}
+</style>
+
+
