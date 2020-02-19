@@ -5,7 +5,7 @@
       Contact me at
       <a href="mailto:ncpleslie@gmail.com">ncpleslie@gmail.com</a>
     </h6>
-    <hr class="line">
+    <hr class="line" />
 
     <b-form class="contact-form" action="https://formspree.io/ncpleslie@gmail.com" method="POST">
       <b-form-group id="input-group-1" label="Email address:" label-for="input-1">
@@ -15,7 +15,7 @@
           id="input-1"
           type="email"
           required
-          placeholder="Your Email"
+          placeholder="Your email here"
           alt="Your Email"
         ></b-form-input>
       </b-form-group>
@@ -25,18 +25,18 @@
           class="contact-form-input"
           id="input-2"
           required
-          placeholder="Your Name"
+          placeholder="Name?"
           alt="Your Name"
         ></b-form-input>
       </b-form-group>
       <b-form-group label="Your Message:" label-for="textarea-default">
-      <b-form-textarea
-        name="name"
-        class="contact-form-input"
-        id="textarea-default"
-        placeholder="Your Message"
-        alt="Your Message"
-      ></b-form-textarea>
+        <b-form-textarea
+          name="name"
+          class="contact-form-input"
+          id="textarea-default"
+          placeholder="What would you like to say?"
+          alt="Your Message"
+        ></b-form-textarea>
       </b-form-group>
       <b-button class="contact-button" type="submit" variant="primary">Submit</b-button>
     </b-form>
@@ -84,6 +84,7 @@ export default {
 
 .contact-form-input::placeholder {
   color: white;
+  opacity: 0.5;
 }
 
 .contact-button {

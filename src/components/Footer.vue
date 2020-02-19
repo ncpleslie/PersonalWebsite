@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <h6>Site created by Nick Leslie © 2019</h6>
+    <h6>Site created by Nick Leslie © 2020</h6>
   </div>
 </template>
 
