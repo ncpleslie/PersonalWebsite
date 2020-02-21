@@ -1,7 +1,7 @@
 <template>
   <div class="projects">
     <h1>Projects</h1>
-    <hr class="line">
+    <hr class="line" />
     <b-card-group class="project-card-group">
       <b-card
         data-aos="fade-up"
@@ -24,9 +24,9 @@
         <a :href="getUrl(project)" alt="Go to project">
           <b-card-title class="project-card-title" :title="project.title"></b-card-title>
         </a>
-        <hr>
+        <hr />
         <b-card-text class="project-card-text">{{ project.description }}</b-card-text>
-        <div slot="footer">
+        <div v-if="project.projectUrl || project.githubUrl" slot="footer">
           <b-button
             v-if="project.projectUrl"
             class="project-card-button"
@@ -35,16 +35,17 @@
             title="See Project"
             alt="See this program running"
           >
-            <img src="../assets/screen.png" alt="See this program running">
+            <img src="../assets/screen.png" alt="See this program running" />
           </b-button>
           <b-button
+            v-if="project.githubUrl"
             class="project-card-button"
             :href="project.githubUrl"
             v-b-tooltip.hover.right
             title="See Code"
             alt="Go to the Github Repo"
           >
-            <img src="../assets/github.png" alt="Go to the Github Repo">
+            <img src="../assets/github.png" alt="Go to the Github Repo" />
           </b-button>
         </div>
       </b-card>
@@ -71,7 +72,9 @@ export default {
   methods: {
     getUrl(project) {
       if (project.projectUrl) return project.projectUrl;
-      if (!project.projectUrl) return project.githubUrl;
+      if (!project.projectUrl && project.githubUrl) return project.githubUrl;
+      if (project.projectUrl && !project.githubUrl) return project.projectUrl;
+      if (!project.projectUrl && !project.githubUrl) return null;
     }
   }
 };
@@ -133,11 +136,11 @@ h1 {
   padding-top: 1rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  color: #FFF;
+  color: #fff;
 }
 
 .project-card-text {
-  color: #FFF !important;
+  color: #fff !important;
   margin-bottom: 1rem;
   padding-left: 1rem;
   padding-right: 1rem;

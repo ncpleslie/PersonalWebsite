@@ -1,5 +1,29 @@
 [
     {
+        "title": "Computer Vision at the Edge",
+        "description": "Using Machine Learning to produce software that runs at the edge, for Jade Software. From car counting to people tracking. Python, OpenCV, OpenVINO.",
+        "imageUrl": "thumbnails/small/computervisionthumbnail.jpg",
+        "projectUrl": ""
+    },
+    {
+        "title": "Hacking a Coffee Machine",
+        "description": "Enchancing the accessibility of a Coffee Machine to include voice controls, for Jade Software, in NodeJS",
+        "imageUrl": "thumbnails/small/coffeemachinethumbnail.jpg",
+        "projectUrl": "https://insights.jadeworld.com/blog/we-built-the-worlds-first-digital-barista-but-why"
+    },
+    {
+        "title": "Social Network",
+        "description": "Creating a secure social-media/forum in PHP and MySQL",
+        "imageUrl": "thumbnails/small/socialmediathumbnail.jpg",
+        "githubUrl": "https://github.com/ncpleslie/SocialNetworkPHP/tree/MVC"
+    },
+    {
+        "title": "Sudoku Desktop Game",
+        "description": "Creating a desktop sudoku game in C#, WPF and MVVM-C",
+        "imageUrl": "thumbnails/small/sudokuthumbnail.jpg",
+        "githubUrl": "https://github.com/ncpleslie/SudokuWPF"
+    },
+    {
         "title": "Correlation and Regression",
         "description": "Recreating the same website using Vanilla NodeJS, Express and NodeJS, React, VueJS and Bootstrap",
         "imageUrl": "thumbnails/small/correlationthumbnail.jpg",
@@ -33,7 +57,7 @@
     },
     {
         "title": "Commonwealth Games",
-        "description": "Taking the assignment I worked on in Semester One I extended it to create a Single Page Application",
+        "description": "Taking the assignment I worked on in Semester One, I extended it to create a Single Page Application",
         "imageUrl": "thumbnails/small/commonwealthgamesthumbnail.jpg",
         "projectUrl": "https://ncpleslie.github.io/commonwealthgames2018",
         "githubUrl": "https://github.com/ncpleslie/commonwealthgames2018"
@@ -60,7 +84,7 @@
         "githubUrl": "https://codepen.io/nick-leslie/pen/qYBNWG"
     },
     {
-        "title": "Hackintosh Project for the Acer Aspire v7",
+        "title": "Acer Aspire v7 Hackintosh",
         "description": "Currently running Mojave on the Acer Aspire V7-482PG",
         "imageUrl": "thumbnails/small/hackintoshthumbnail.jpg",
         "githubUrl": "https://github.com/ncpleslie/Acer-V7-Aspire-482PG"
