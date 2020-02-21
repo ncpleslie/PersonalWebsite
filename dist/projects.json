@@ -1,0 +1,92 @@
+[
+    {
+        "title": "Computer Vision at the Edge",
+        "description": "Using Machine Learning to produce software that runs at the edge, for Jade Software. From car counting to people tracking. Python, OpenCV, OpenVINO.",
+        "imageUrl": "thumbnails/small/computervisionthumbnail.jpg",
+        "projectUrl": ""
+    },
+    {
+        "title": "Hacking a Coffee Machine",
+        "description": "Enchancing the accessibility of a Coffee Machine to include voice controls, for Jade Software, in NodeJS",
+        "imageUrl": "thumbnails/small/coffeemachinethumbnail.jpg",
+        "projectUrl": "https://insights.jadeworld.com/blog/we-built-the-worlds-first-digital-barista-but-why"
+    },
+    {
+        "title": "Social Network",
+        "description": "Creating a secure social-media/forum in PHP and MySQL",
+        "imageUrl": "thumbnails/small/socialmediathumbnail.jpg",
+        "githubUrl": "https://github.com/ncpleslie/SocialNetworkPHP/tree/MVC"
+    },
+    {
+        "title": "Sudoku Desktop Game",
+        "description": "Creating a desktop sudoku game in C#, WPF and MVVM-C",
+        "imageUrl": "thumbnails/small/sudokuthumbnail.jpg",
+        "githubUrl": "https://github.com/ncpleslie/SudokuWPF"
+    },
+    {
+        "title": "Correlation and Regression",
+        "description": "Recreating the same website using Vanilla NodeJS, Express and NodeJS, React, VueJS and Bootstrap",
+        "imageUrl": "thumbnails/small/correlationthumbnail.jpg",
+        "projectUrl": "https://6t14c.codesandbox.io/",
+        "githubUrl": "https://github.com/ncpleslie/PR280-Assignment2"
+    },
+    {
+        "title": "Join Us - Cult Website",
+        "description": "A website connecting a relational database with the client using NodeJS, EJS, and Express. Built in conjection with Colt Steele (Udemy)",
+        "imageUrl": "thumbnails/small/cultthumbnail.jpg",
+        "githubUrl": "https://github.com/ncpleslie/JoinUs_Cult_Website"
+    },
+    {
+        "title": "Vector LTD Database",
+        "description": "The award winning relational database built for Vector Energy, using MySQL. Used to stored information received from 'Smart Meters'",
+        "imageUrl": "thumbnails/small/vectorthumbnail.jpg",
+        "githubUrl": "https://github.com/ncpleslie/VectorLTD_SmartMeter_Database"
+    },
+    {
+        "title": "Date Night",
+        "description": "Date Night is a flutter based cross-platform mobile app designed to make your relationship easier.",
+        "imageUrl": "thumbnails/small/datenightthumbnail.jpg",
+        "githubUrl": "https://github.com/ncpleslie/date_night"
+    },
+    {
+        "title": "Wizard Saves the City",
+        "description": "A Platform game in JavaScript using Phaser 3",
+        "imageUrl": "thumbnails/small/platformgamethumbnail.jpg",
+        "projectUrl": "https://ncpleslie.github.io/PlatformGame/",
+        "githubUrl": "https://github.com/ncpleslie/PlatformGame"
+    },
+    {
+        "title": "Commonwealth Games",
+        "description": "Taking the assignment I worked on in Semester One, I extended it to create a Single Page Application",
+        "imageUrl": "thumbnails/small/commonwealthgamesthumbnail.jpg",
+        "projectUrl": "https://ncpleslie.github.io/commonwealthgames2018",
+        "githubUrl": "https://github.com/ncpleslie/commonwealthgames2018"
+    },
+    {
+        "title": "New Zealand Music Live",
+        "description": "A website for a Live Music Recording Company",
+        "imageUrl": "thumbnails/small/NZMLthumbnail.jpg",
+        "projectUrl": "https://ncpleslie.github.io/NZML/",
+        "githubUrl": "https://github.com/ncpleslie/NZML"
+    },
+    {
+        "title": "Weather App",
+        "description": "A basic Weather App using jQuery and Dark Sky API",
+        "imageUrl": "thumbnails/small/weatherthumbnail.jpg",
+        "projectUrl": "https://codepen.io/nick-leslie/pen/vjJGrp",
+        "githubUrl": "https://codepen.io/nick-leslie/pen/vjJGrp"
+    },
+    {
+        "title": "Quote Machine",
+        "description": "A basic quote generator. Built in conjection with freeCodeCamp",
+        "imageUrl": "thumbnails/small/quotethumbnail.jpg",
+        "projectUrl": "https://codepen.io/nick-leslie/pen/qYBNWG",
+        "githubUrl": "https://codepen.io/nick-leslie/pen/qYBNWG"
+    },
+    {
+        "title": "Acer Aspire v7 Hackintosh",
+        "description": "Currently running Mojave on the Acer Aspire V7-482PG",
+        "imageUrl": "thumbnails/small/hackintoshthumbnail.jpg",
+        "githubUrl": "https://github.com/ncpleslie/Acer-V7-Aspire-482PG"
+    }
+]
