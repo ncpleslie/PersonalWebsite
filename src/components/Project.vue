@@ -128,7 +128,6 @@ h1 {
   border-top: 2px solid #1eb980;
   border-left: 2px solid #1eb980;
   border-right: 2px solid #045d56;
-  border-bottom: 2px solid #045d56;
   filter: drop-shadow(0.1rem 0.1rem 0.5rem #045d56);
 }
 
