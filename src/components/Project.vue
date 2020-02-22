@@ -229,20 +229,59 @@ a:active {
     width: 100%;
   }
 }
-
-@media only screen and (min-width: 180rem) {
+/* Large format displays - MacBook 15inch, etc */
+@media only screen and (min-width: 144rem) {
   .project-card {
-    min-width: 40rem;
+    min-width: 25rem;
+    min-height: 35rem;
   }
 
   .project-card-title {
-    font-size: 3rem;
+    font-size: 2rem;
+  }
+
+  .card-body {
+    padding: 0;
+    min-height: 32rem;
   }
 
   .project-card-text {
     font-size: 1.5rem !important;
-    height: 10rem;
   }
+}
+
+/* Large format displays - MacBook 15inch, etc */
+@media only screen and (min-width: 180rem) {
+  .project-card {
+    min-width: 30rem;
+    min-height: 30rem;
+  }
+
+  .project-card-title {
+    font-size: 2.3rem;
+  }
+
+  .card-body {
+    padding: 0;
+    min-height: 35rem;
+  }
+
+  .project-card-text {
+    font-size: 1.5rem !important;
+    height: 0rem;
+  }
+
+  .project-card-button {
+    border-radius: 0px;
+    border: 2px solid #045d56;
+    background-color: #27272f !important;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  /* .project-card-footer {
+    min-height: 0rem;
+  } */
 }
 </style>
 

@@ -93,6 +93,9 @@ export default {};
   border: 2px solid #045d56;
   background-color: #27272f !important;
   margin-left: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .project-card-button:hover {
@@ -116,8 +119,29 @@ export default {};
   filter: invert(100%);
 }
 
-h2 {
-  font-size: 1rem;
+/* Large format displays - MacBook 15inch, etc */
+@media only screen and (min-width: 144rem) {
+  .project-card-button {
+    line-height: 3rem;
+    font-size: 2rem;
+  }
+
+  .jumbotron-button-container .project-card-button {
+    height: 5rem;
+    width: 5rem;
+  }
+
+  .jumbotron-button-container .project-card-button img {
+    height: 3rem;
+  }
+
+  h1 {
+    font-size: 1000%;
+  }
+
+  p {
+    font-size: 2rem;
+  }
 }
 </style>
 
