@@ -1,16 +1,16 @@
 <template>
   <div class="contact">
-    <h1>Contact Me</h1>
-    <h6>
+    <h2>Contact Me</h2>
+    <h3>
       Contact me at
       <a href="mailto:ncpleslie@gmail.com">ncpleslie@gmail.com</a>
-    </h6>
+    </h3>
     <hr class="line" />
 
-    <b-form class="contact-form" action="https://formspree.io/ncpleslie@gmail.com" method="POST">
+    <b-form class="contact-form" action="https://formspree.io/xrgkbgrb" method="POST">
       <b-form-group id="input-group-1" label="Email address:" label-for="input-1">
         <b-form-input
-          name="name"
+          name="_replyto"
           class="contact-form-input"
           id="input-1"
           type="email"
@@ -25,13 +25,13 @@
           class="contact-form-input"
           id="input-2"
           required
-          placeholder="Name?"
+          placeholder="Name"
           alt="Your Name"
         ></b-form-input>
       </b-form-group>
       <b-form-group label="Your Message:" label-for="textarea-default">
         <b-form-textarea
-          name="name"
+          name="message"
           class="contact-form-input"
           id="textarea-default"
           placeholder="What would you like to say?"
@@ -70,6 +70,10 @@ export default {
 .contact-form {
   margin: 0 auto;
   width: 60%;
+}
+
+h3 {
+  font-size: 1rem;
 }
 
 .contact-form-input {

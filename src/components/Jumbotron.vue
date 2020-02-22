@@ -115,6 +115,10 @@ export default {};
 .project-card-button img {
   filter: invert(100%);
 }
+
+h2 {
+  font-size: 1rem;
+}
 </style>
 
 

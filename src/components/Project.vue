@@ -1,8 +1,9 @@
 <template>
   <div class="projects">
-    <h1>Projects</h1>
+    <h2>Projects</h2>
     <hr class="line" />
     <b-card-group class="project-card-group">
+      <!-- Project Cards start here -->
       <b-card
         data-aos="fade-up"
         data-aos-duration="500"
@@ -13,20 +14,39 @@
         :key="index"
         footer-tag="footer"
       >
-        <a :href="getUrl(project)" alt="Go to project">
+        <!-- Image section -->
+        <a
+          v-if="getUrl(project)"
+          :href="getUrl(project)"
+          alt="Go to project"
+          :title="project.title"
+        >
           <b-card-img-lazy
             v-b-tooltip.hover
             :src="project.imageUrl"
             v-bind="mainProps"
             :alt="project.title"
+            :title="project.title"
           ></b-card-img-lazy>
         </a>
+        <!-- If a project has no code or preview then remove all hover styling -->
+        <b-card-img-lazy
+          class="project-card-image no-link"
+          v-else-if="!getUrl(project)"
+          :src="project.imageUrl"
+          v-bind="mainProps"
+          :alt="project.title"
+          :title="project.title"
+        ></b-card-img-lazy>
+        <!-- Project card title starts here -->
         <a :href="getUrl(project)" alt="Go to project">
           <b-card-title class="project-card-title" :title="project.title"></b-card-title>
         </a>
         <hr />
+        <!-- Project card description starts here -->
         <b-card-text class="project-card-text">{{ project.description }}</b-card-text>
-        <div v-if="project.projectUrl || project.githubUrl" slot="footer">
+        <!-- Project card footer and buttons to code/preview starts here -->
+        <div slot="footer" class="project-card-footer">
           <b-button
             v-if="project.projectUrl"
             class="project-card-button"
@@ -85,8 +105,9 @@ export default {
   width: 60%;
 }
 
-h1 {
+h2 {
   color: white;
+  font-size: 3rem;
   margin-top: 2rem;
 }
 
@@ -105,6 +126,7 @@ h1 {
   margin-bottom: 1rem;
   max-width: 20rem;
   min-width: 20rem;
+  min-height: 27.5rem;
   background-color: #33333d;
   border-radius: 0px;
   padding: 0;
@@ -115,6 +137,11 @@ h1 {
 
 .card-body {
   padding: 0;
+  max-height: 23.5rem;
+}
+
+.project-card-footer {
+  min-height: 2.5rem;
 }
 
 .project-card-image {
@@ -129,6 +156,14 @@ h1 {
   border-left: 2px solid #1eb980;
   border-right: 2px solid #045d56;
   filter: drop-shadow(0.1rem 0.1rem 0.5rem #045d56);
+}
+
+.no-link:hover {
+  cursor: unset;
+  border-top: unset;
+  border-left: unset;
+  border-right: unset;
+  filter: unset;
 }
 
 .project-card-title {

@@ -1,6 +1,5 @@
-[
-    {
-        "title": "Computer Vision at the Edge",
+[{
+        "title": "Edge Computer Vision",
         "description": "Using Machine Learning to produce software that runs at the edge, for Jade Software. From car counting to people tracking. Python, OpenCV, OpenVINO.",
         "imageUrl": "thumbnails/small/computervisionthumbnail.jpg",
         "projectUrl": ""
