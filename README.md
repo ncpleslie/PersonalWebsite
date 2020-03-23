@@ -12,6 +12,7 @@ Feel free to use this website any way you want.
 ## How to use
 
 - Edit "public/website_data.json" with your details/projects
+- Add a formspree URL (https://formspree.io/) to direct messages to your email
 - Add relevant thumbnails to the thumbnail folders (Don't forget to replace the paths found in "public/website_data.json")
 - Run "npm install" (Node/NPM required)
 - Run "npm run build"
