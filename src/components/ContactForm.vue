@@ -3,11 +3,11 @@
     <h2>Contact Me</h2>
     <h3>
       Contact me at
-      <a href="mailto:ncpleslie@gmail.com">ncpleslie@gmail.com</a>
+      <a :href="'mailto:' + this.contact.email">{{this.contact.email}}</a>
     </h3>
     <hr class="line" />
 
-    <b-form class="contact-form" action="https://formspree.io/xrgkbgrb" method="POST">
+    <b-form class="contact-form" v-bind:action="this.contact.formSpringUrl" method="POST">
       <b-form-group id="input-group-1" label="Email address:" label-for="input-1">
         <b-form-input
           name="_replyto"
@@ -45,6 +45,9 @@
 
 <script>
 export default {
+  props: {
+    contact: Object
+  },
   methods: {
     onSubmit(evt) {
       evt.preventDefault();

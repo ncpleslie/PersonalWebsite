@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Jumbotron />
+    <Jumbotron :header="this.header" />
     <Project id="projects" :projects="this.projects" />
-    <ContactForm id="contact" />
+    <ContactForm id="contact" :contact="this.contact" />
     <Footer />
   </div>
 </template>
@@ -12,7 +12,7 @@ import Project from "./components/Project";
 import Jumbotron from "./components/Jumbotron";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
-import projectJson from "../public/projects.json";
+import websiteData from "../public/website_data.json";
 
 export default {
   name: "App",
@@ -24,7 +24,9 @@ export default {
   },
   data() {
     return {
-      projects: projectJson
+      header: websiteData.header,
+      projects: websiteData.projects,
+      contact: websiteData.contact
     };
   }
 };
