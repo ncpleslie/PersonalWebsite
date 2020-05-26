@@ -7,6 +7,8 @@ Feel free to use this website any way you want.
 ## Features
 - Mobile First
 - 4K screen support
+- Only need to fill in one file to update all information on the site
+- Easy to customize
 - Responsive
 
 ## How to use
@@ -16,3 +18,7 @@ Feel free to use this website any way you want.
 - Add relevant thumbnails to the thumbnail folders (Don't forget to replace the paths found in "public/website_data.json")
 - Run "npm install" (Node/NPM required)
 - Run "npm run build"
+
+## License
+- MIT
+- Feel free to use this code as you see fit, set up your on website with it, whatever. Just give me an attribution somewhere on your site. Thanks
