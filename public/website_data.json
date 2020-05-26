@@ -21,7 +21,13 @@
             "projectUrl": "https://insights.jadeworld.com/blog/we-built-the-worlds-first-digital-barista-but-why"
         },
         {
-            "title": "Social Network",
+            "title": "C3 Church Mobile App",
+            "description": "Created using Flutter and Dart. Integrates the Facebook API.",
+            "imageUrl": "thumbnails/small/c3churchthumbnail.jpg",
+            "githubUrl": "https://github.com/ncpleslie/C3Church"
+        },
+        {
+            "title": "PHP Social Network",
             "description": "Creating a secure social-media/forum in PHP and MySQL",
             "imageUrl": "thumbnails/small/socialmediathumbnail.jpg",
             "githubUrl": "https://github.com/ncpleslie/SocialNetworkPHP/tree/MVC"
