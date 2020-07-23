@@ -28,12 +28,17 @@
       :title="project.title"
     ></b-card-img-lazy>
     <!-- Project card title starts here -->
-    <a :href="getUrl(project)" alt="Go to project">
-      <b-card-title class="project-card-title" :title="project.title"></b-card-title>
-    </a>
-    <hr />
-    <!-- Project card description starts here -->
-    <b-card-text class="project-card-text">{{ project.description }}</b-card-text>
+    <b-card-body>
+      <a :href="getUrl(project)" alt="Go to project">
+        <b-card-title class="project-card-title" :title="project.title"></b-card-title>
+      </a>
+      <hr />
+      <!-- Project card description starts here -->
+      <b-card-text class="project-card-description">{{ project.description }}</b-card-text>
+      <!-- Project card technology starts here -->
+      <b-card-text class="project-card-tech">{{ project.technology }}</b-card-text>
+    </b-card-body>
+
     <!-- Project card footer and buttons to code/preview starts here -->
     <div slot="footer" class="project-card-footer">
       <b-button
@@ -46,6 +51,19 @@
       >
         <img src="../../assets/screen.svg" alt="See this program running" />
       </b-button>
+
+      <b-button
+        v-else
+        disabled
+        class="project-card-button disabled"
+        :href="project.projectUrl"
+        v-b-tooltip.hover.left
+        title="No Project Provide"
+        alt="No Project Provide"
+      >
+        <img src="../../assets/screen.svg" alt="No Project Provide" />
+      </b-button>
+
       <b-button
         v-if="project.githubUrl"
         class="project-card-button"
@@ -55,6 +73,16 @@
         alt="Go to the Github Repo"
       >
         <img src="../../assets/github.svg" alt="Go to the Github Repo" />
+      </b-button>
+      <b-button
+        v-else
+        disabled
+        class="project-card-button disabled"
+        v-b-tooltip.hover.right
+        title="No Code Provided"
+        alt="No Code Provided"
+      >
+        <img src="../../assets/github.svg" alt="No Code Provided" />
       </b-button>
     </div>
   </b-card>
@@ -90,14 +118,8 @@ export default {
 
 <style scoped>
 .project-card {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  max-width: 20rem;
-  min-width: 20rem;
-  min-height: 27.5rem;
   background-color: #33333d;
   border-radius: 0px;
-  padding: 0;
   -webkit-box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
   -moz-box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
   box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
@@ -105,7 +127,6 @@ export default {
 
 .card-body {
   padding: 0;
-  max-height: 23.5rem;
 }
 
 .project-card-footer {
@@ -141,12 +162,14 @@ export default {
   color: #fff;
 }
 
-.project-card-text {
-  color: #fff !important;
-  margin-bottom: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  height: 7rem;
+.project-card-description {
+  color: #fff;
+  padding: 0rem 1rem 0 1rem;
+}
+
+.project-card-tech {
+  color: #fff;
+  padding-bottom: 1rem;
 }
 
 .project-card-button {
@@ -164,6 +187,12 @@ export default {
   -webkit-box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
   -moz-box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
   box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
+}
+
+.project-card-button.disabled:hover {
+  cursor: default;
+  border: 2px solid grey;
+  background-color: #27272f !important;
 }
 
 .project-card-button img {
@@ -202,7 +231,7 @@ a:active {
     min-height: 32rem;
   }
 
-  .project-card-text {
+  .project-card-description {
     font-size: 1.5rem !important;
   }
 }
@@ -223,7 +252,7 @@ a:active {
     min-height: 35rem;
   }
 
-  .project-card-text {
+  .project-card-description {
     font-size: 1.5rem !important;
     height: 0rem;
   }

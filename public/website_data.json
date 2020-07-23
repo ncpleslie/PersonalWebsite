@@ -10,99 +10,68 @@
     },
     "projects": [{
             "title": "Edge Computer Vision",
-            "description": "Using Machine Learning to produce software that runs at the edge, for Jade Software. From car counting to people tracking. Python, OpenCV, OpenVINO.",
+            "description": "A security camera system with on-device processing to detect, track and log multiple objects. This includes license plates, people and vehicles",
+            "technology": "Python, OpenCV, OpenVINO",
             "imageUrl": "thumbnails/small/computervisionthumbnail.jpg",
             "projectUrl": ""
         },
         {
-            "title": "Hacking a Coffee Machine",
-            "description": "Enchancing the accessibility of a Coffee Machine to include voice controls, for Jade Software, in NodeJS",
+            "title": "Bella - The Coffee Machine Assistant",
+            "description": "Enchancing the accessibility of a Coffee Machine to include voice controls, for Jade Software. Showcased at the Noel Leeming Flagship store",
+            "technology": "JavaScript, NodeJS, Snowboy, Google Cloud API",
             "imageUrl": "thumbnails/small/coffeemachinethumbnail.jpg",
             "projectUrl": "https://www.jadeworld.com/resources/blog/we-built-the-worlds-first-digital-barista-but-why"
         },
         {
             "title": "C3 Church Mobile App",
-            "description": "Created using Flutter and Dart. Integrates the Facebook API.",
+            "description": "A mobile application for the congregation to receive updates and relevant news about the church",
+            "technology": "Dart, Flutter, Scoped Model, Facebook's GraphQL",
             "imageUrl": "thumbnails/small/c3churchthumbnail.jpg",
             "githubUrl": "https://github.com/ncpleslie/C3Church"
         },
         {
             "title": "PHP Social Network",
-            "description": "Creating a secure social-media/forum in PHP and MySQL",
+            "description": "Created a secure PHP website that allows for authentication and authorization, as well as creating, updating and deleting forum posts and updating and deleting user profile information",
+            "technology": "PHP, MySQL",
             "imageUrl": "thumbnails/small/socialmediathumbnail.jpg",
             "githubUrl": "https://github.com/ncpleslie/SocialNetworkPHP/tree/MVC"
         },
         {
             "title": "Sudoku Desktop Game",
-            "description": "Creating a desktop sudoku game in C#, WPF and MVVM-C",
-            "imageUrl": "thumbnails/small/sudokuthumbnail.jpg",
+            "description": "A basic Sudoku desktop game following the MVVM-C architecture. Users are tracked and rated based on time. Levels are can be easily added and games saved",
+            "technology": "C#, WPF, MVVM-C",
+            "imageUrl": "thumbnails/sudoku_showcase.png",
             "githubUrl": "https://github.com/ncpleslie/SudokuWPF"
         },
         {
-            "title": "Correlation and Regression",
-            "description": "Recreating the same website using Vanilla NodeJS, Express and NodeJS, React, VueJS and Bootstrap",
+            "title": "One Thing, Four Ways",
+            "description": "A file upload system was developed that could receive a text files containing numbers and calculate correlation and regression. Four services were developed using four different technologies",
+            "technology": "JavaScript, React, Vue, NodeJS, Express, Bootstrap-Vue",
             "imageUrl": "thumbnails/small/correlationthumbnail.jpg",
             "projectUrl": "https://6t14c.codesandbox.io/",
             "githubUrl": "https://github.com/ncpleslie/PR280-Assignment2"
         },
         {
-            "title": "Join Us - Cult Website",
-            "description": "A website connecting a relational database with the client using NodeJS, EJS, and Express. Built in conjection with Colt Steele (Udemy)",
-            "imageUrl": "thumbnails/small/cultthumbnail.jpg",
-            "githubUrl": "https://github.com/ncpleslie/JoinUs_Cult_Website"
-        },
-        {
             "title": "Vector LTD Database",
-            "description": "The award winning relational database built for Vector Energy, using MySQL. Used to stored information received from 'Smart Meters'",
+            "description": "The award winning relational database built for Vector Energy, using MySQL. Used to stored information received from Smart Power Meters",
+            "technology": "MySQL, SQL, ERD",
             "imageUrl": "thumbnails/small/vectorthumbnail.jpg",
             "githubUrl": "https://github.com/ncpleslie/VectorLTD_SmartMeter_Database"
         },
         {
             "title": "Date Night",
-            "description": "Date Night is a flutter based cross-platform mobile app designed to make your relationship easier.",
-            "imageUrl": "thumbnails/small/datenightthumbnail.jpg",
+            "description": "Date Night is a cross-platform mobile app designed to make your relationship easier. Users enter their date ideas and an unbiased decision is returned. Other users date ideas are displayed on the home-screen",
+            "technology": "Dart, Flutter, Firebase Realtime Database",
+            "imageUrl": "thumbnails/date_night_showcase.png",
             "githubUrl": "https://github.com/ncpleslie/date_night"
         },
         {
             "title": "Wizard Saves the City",
-            "description": "A Platform game in JavaScript using Phaser 3",
+            "description": "A platform game about a wizard, some cones, and an earthquake. Featuring three unique levels, an annoying soundtrack and mobile controls",
+            "technology": "JavaScript, Phaser 3",
             "imageUrl": "thumbnails/small/platformgamethumbnail.jpg",
             "projectUrl": "https://ncpleslie.github.io/PlatformGame/",
             "githubUrl": "https://github.com/ncpleslie/PlatformGame"
-        },
-        {
-            "title": "Commonwealth Games",
-            "description": "Taking the assignment I worked on in Semester One, I extended it to create a Single Page Application",
-            "imageUrl": "thumbnails/small/commonwealthgamesthumbnail.jpg",
-            "projectUrl": "https://ncpleslie.github.io/commonwealthgames2018",
-            "githubUrl": "https://github.com/ncpleslie/commonwealthgames2018"
-        },
-        {
-            "title": "New Zealand Music Live",
-            "description": "A website for a Live Music Recording Company",
-            "imageUrl": "thumbnails/small/NZMLthumbnail.jpg",
-            "projectUrl": "https://ncpleslie.github.io/NZML/",
-            "githubUrl": "https://github.com/ncpleslie/NZML"
-        },
-        {
-            "title": "Weather App",
-            "description": "A basic Weather App using jQuery and Dark Sky API",
-            "imageUrl": "thumbnails/small/weatherthumbnail.jpg",
-            "projectUrl": "https://codepen.io/nick-leslie/pen/vjJGrp",
-            "githubUrl": "https://codepen.io/nick-leslie/pen/vjJGrp"
-        },
-        {
-            "title": "Quote Machine",
-            "description": "A basic quote generator. Built in conjection with freeCodeCamp",
-            "imageUrl": "thumbnails/small/quotethumbnail.jpg",
-            "projectUrl": "https://codepen.io/nick-leslie/pen/qYBNWG",
-            "githubUrl": "https://codepen.io/nick-leslie/pen/qYBNWG"
-        },
-        {
-            "title": "Acer Aspire v7 Hackintosh",
-            "description": "Currently running Mojave on the Acer Aspire V7-482PG",
-            "imageUrl": "thumbnails/small/hackintoshthumbnail.jpg",
-            "githubUrl": "https://github.com/ncpleslie/Acer-V7-Aspire-482PG"
         }
     ],
     "contact": {

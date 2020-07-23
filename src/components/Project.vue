@@ -34,23 +34,19 @@ h2 {
 .project-card-group {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: flex-start;
-  width: 60%;
-  margin-left: auto;
-  margin-right: auto;
+  justify-content: center;
 }
 
-@media only screen and (max-width: 575px) {
-  .project-card-group {
-    flex-flow: row wrap;
-  }
+.project-card-group > .card {
+  margin: 2rem;
+  flex: 0 1 95%;
+  max-width: 30rem;
 }
 
-@media only screen and (max-width: 74rem) {
-  .project-card-group {
-    width: 100%;
+/* To fix misaligned project cards */
+@media only screen and (min-width: 39rem) {
+  .project-card-group > .card:nth-child(1) {
+    margin: 2rem 2rem 2rem 0;
   }
 }
 </style>
-
