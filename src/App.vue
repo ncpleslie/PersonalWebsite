@@ -11,8 +11,7 @@
 </template>
 
 <script>
-// CHANGE THIS
-const PROFILE_URL = "https://ncpleslie.github.io/website_data.json";
+const PROFILE_URL = process.env.PROFILE_DATA_URL;
 
 import Project from "./components/Project";
 import Jumbotron from "./components/Jumbotron";
@@ -35,8 +34,12 @@ export default {
     };
   },
   async created() {
-    let response = await fetch(PROFILE_URL);
-    this.websiteData = await response.json();
+    if (process.env.NODE_ENV === "production") {
+      let response = await fetch(PROFILE_URL);
+      this.websiteData = await response.json();
+    } else {
+      this.websiteData = require("../public/website_data.json");
+    }
   },
 };
 </script>

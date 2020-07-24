@@ -9,27 +9,33 @@
     footer-tag="footer"
   >
     <!-- Image section -->
-    <a v-if="getUrl(project)" :href="getUrl(project)" alt="Go to project" :title="project.title">
+    <div v-if="isPicture()">
+      <a v-if="getUrl()" :href="getUrl()" alt="Go to project" :title="project.title">
+        <b-card-img-lazy
+          v-b-tooltip.hover
+          :src="project.imageUrl"
+          v-bind="mainProps"
+          :alt="project.title"
+          :title="project.title"
+        ></b-card-img-lazy>
+      </a>
+      <!-- If a project has no code or preview then remove all hover styling -->
       <b-card-img-lazy
-        v-b-tooltip.hover
+        class="project-card-image no-link"
+        v-else-if="!getUrl()"
         :src="project.imageUrl"
         v-bind="mainProps"
         :alt="project.title"
         :title="project.title"
       ></b-card-img-lazy>
-    </a>
-    <!-- If a project has no code or preview then remove all hover styling -->
-    <b-card-img-lazy
-      class="project-card-image no-link"
-      v-else-if="!getUrl(project)"
-      :src="project.imageUrl"
-      v-bind="mainProps"
-      :alt="project.title"
-      :title="project.title"
-    ></b-card-img-lazy>
+    </div>
+    <!-- Display youtube frame -->
+    <div v-if="isYoutube()">
+      <b-embed type="iframe" aspect="16by9" :src="project.imageUrl" allowfullscreen></b-embed>
+    </div>
     <!-- Project card title starts here -->
     <b-card-body>
-      <a :href="getUrl(project)" alt="Go to project">
+      <a :href="getUrl()" alt="Go to project">
         <b-card-title class="project-card-title" :title="project.title"></b-card-title>
       </a>
       <hr />
@@ -92,7 +98,7 @@
 export default {
   name: "ProjectCard",
   props: {
-    project: Object
+    project: Object,
   },
   data() {
     return {
@@ -101,18 +107,26 @@ export default {
         class: "project-card-image",
         "blank-width": 300,
         "blank-height": 169,
-        "blank-color": "grey"
-      }
+        "blank-color": "grey",
+      },
     };
   },
   methods: {
-    getUrl(project) {
-      if (project.projectUrl) return project.projectUrl;
-      if (!project.projectUrl && project.githubUrl) return project.githubUrl;
-      if (project.projectUrl && !project.githubUrl) return project.projectUrl;
-      if (!project.projectUrl && !project.githubUrl) return null;
-    }
-  }
+    isYoutube() {
+      return this.project.imageUrl.match(/\.(youtube)/g) != null;
+    },
+    isPicture() {
+      return this.project.imageUrl.match(/\.(jpeg|jpg|png|gif)/g) != null;
+    },
+    getUrl() {
+      if (this.project.projectUrl) return this.project.projectUrl;
+      if (!this.project.projectUrl && this.project.githubUrl)
+        return this.project.githubUrl;
+      if (this.project.projectUrl && !this.project.githubUrl)
+        return this.project.projectUrl;
+      if (!this.project.projectUrl && !this.project.githubUrl) return null;
+    },
+  },
 };
 </script>
 
