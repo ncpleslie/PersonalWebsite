@@ -1,18 +1,24 @@
 <template>
   <div id="app">
-    <Jumbotron :header="this.header" />
-    <Project id="projects" :projects="this.projects" />
-    <ContactForm id="contact" :contact="this.contact" />
-    <Footer />
+    <div v-if="websiteData">
+      <Jumbotron :header="websiteData.header" />
+      <Project id="projects" :projects="websiteData.projects" />
+      <ContactForm id="contact" :contact="websiteData.contact" />
+      <Footer />
+    </div>
+    <Loading v-else />
   </div>
 </template>
 
 <script>
+// CHANGE THIS
+const PROFILE_URL = "https://ncpleslie.github.io/website_data.json";
+
 import Project from "./components/Project";
 import Jumbotron from "./components/Jumbotron";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
-import websiteData from "../public/website_data.json";
+import Loading from "./components/Loading";
 
 export default {
   name: "App",
@@ -20,15 +26,18 @@ export default {
     Project,
     Jumbotron,
     ContactForm,
-    Footer
+    Footer,
+    Loading,
   },
   data() {
     return {
-      header: websiteData.header,
-      projects: websiteData.projects,
-      contact: websiteData.contact
+      websiteData: null,
     };
-  }
+  },
+  async created() {
+    let response = await fetch(PROFILE_URL);
+    this.websiteData = await response.json();
+  },
 };
 </script>
 
@@ -41,9 +50,5 @@ export default {
   color: #2c3e50;
   margin-top: 0px;
   background-color: #27272f;
-}
-
-Project {
-  margin: 0 auto;
 }
 </style>

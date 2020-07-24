@@ -189,6 +189,12 @@ export default {
   box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
 }
 
+.project-card-button.disabled {
+  cursor: default;
+  border: 2px solid grey;
+  background-color: #27272f !important;
+}
+
 .project-card-button.disabled:hover {
   cursor: default;
   border: 2px solid grey;

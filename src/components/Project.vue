@@ -42,11 +42,4 @@ h2 {
   flex: 0 1 95%;
   max-width: 30rem;
 }
-
-/* To fix misaligned project cards */
-@media only screen and (min-width: 39rem) {
-  .project-card-group > .card:nth-child(1) {
-    margin: 2rem 2rem 2rem 0;
-  }
-}
 </style>
