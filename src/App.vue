@@ -11,8 +11,6 @@
 </template>
 
 <script>
-const PROFILE_URL = process.env.PROFILE_DATA_URL;
-
 import Project from "./components/Project";
 import Jumbotron from "./components/Jumbotron";
 import ContactForm from "./components/ContactForm";
@@ -34,8 +32,8 @@ export default {
     };
   },
   async created() {
-    if (process.env.NODE_ENV === "production") {
-      let response = await fetch(PROFILE_URL);
+    if (process.env.NODE_ENV == "production") {
+      let response = await fetch(process.env.VUE_APP_PROFILE_DATA_URL);
       this.websiteData = await response.json();
     } else {
       this.websiteData = require("../public/website_data.json");
