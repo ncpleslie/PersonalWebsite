@@ -33,11 +33,11 @@ app.use(errorHandling.notFound);
 app.use(errorHandling.catchAll);
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}).catch(err => {
-    console.log(err);
-})
+// mongoose.connect(process.env.MONGO_URI, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// }).catch(err => {
+//     console.log(err);
+// })
 
 module.exports = app;

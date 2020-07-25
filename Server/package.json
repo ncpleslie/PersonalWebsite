@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "personal website nodejs server",
   "main": "index.js",
+  "engines": {
+    "node": "12.x"
+  },
   "scripts": {
     "dev": "nodemon src/index.js",
     "start": "node src/index.js"
