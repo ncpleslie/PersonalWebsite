@@ -21,6 +21,9 @@ jobs:
       - run: npm install
         working-directory: Client
       - run: npm run build --if-present
+        env:
+          VUE_APP_BACKUP_PROFILE_DATA_URL: https://raw.githubusercontent.com/ncpleslie/PersonalWebsite/master/Server/src/website_data.json
+          VUE_APP_PROFILE_DATA_URL: https://ncpleslie-api.herokuapp.com
         working-directory: Client
       - name: Pushes to another repository
         uses: cpina/github-action-push-to-another-repository@master
