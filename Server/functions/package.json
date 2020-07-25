@@ -4,7 +4,7 @@
   "description": "personal website nodejs server",
   "main": "index.js",
   "engines": {
-    "node": "10"
+    "node": "8"
   },
   "scripts": {
     "lint": "echo 'Skipping lint'",
