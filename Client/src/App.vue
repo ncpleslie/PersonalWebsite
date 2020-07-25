@@ -53,14 +53,22 @@ export default {
     },
     async get(contentType) {
       let response;
-      if (process.env.NODE_ENV == "production") {
+      if (this.head && this.projects && this.contact) return;
+      try {
         response = await fetch(
           `${process.env.VUE_APP_PROFILE_DATA_URL}/${contentType}`
         );
-      } else {
-        response = await fetch(`http://localhost:8000/${contentType}`);
+        return await response.json();
+      } catch (err) {
+        this.getAll();
       }
-      return await response.json();
+    },
+    async getAll() {
+      let response = await fetch(process.env.VUE_APP_BACKUP_PROFILE_DATA_URL);
+      response = await response.json();
+      this.head = response.header;
+      this.projects = response.projects;
+      this.contact = response.contact;
     },
   },
 };
