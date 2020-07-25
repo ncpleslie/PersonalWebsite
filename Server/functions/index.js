@@ -7,4 +7,4 @@ const app = require('./src/app');
 //     console.log(`[Console] Server Created on port: ${port}`);
 // });
 
-functions.https.onRequest(app);
+exports.api = functions.https.onRequest(app);
