@@ -11,10 +11,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    # - name: Install npm packages
-    #   run: |
-    #     cd functions
-    #     npm install
+    - name: Install npm packages
+      run: |
+        cd Server/functions
+        npm install
 
     - name:  Deploy to Firebase
       uses: w9jds/firebase-action@master
