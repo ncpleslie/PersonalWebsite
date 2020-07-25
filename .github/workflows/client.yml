@@ -30,4 +30,3 @@ jobs:
           destination-github-username: 'ncpleslie'
           destination-repository-name: 'ncpleslie.github.io'
           user-email: ncpleslie@gmail.com
-        working-directory: Client
