@@ -26,7 +26,7 @@ const dbRef = (reference) => {
 }
 
 const sendResponse = (ref, res) => {
-    ref.on("value", (snapshot) => {
+    ref.once("value", (snapshot) => {
         res.status(200).json(
             snapshot.val()
         );
