@@ -1,9 +1,11 @@
 <template>
   <div id="home">
-    <div v-if="head">
-      <Jumbotron v-if="head" :header="head" />
+    <div v-if="header">
+      <Jumbotron v-if="header" :header="header" />
       <Project v-if="projects" id="projects" :projects="projects" />
+      <Loading :title="'Projects'" v-else />
       <ContactForm v-if="contact" id="contact" :contact="contact" />
+      <Loading :title="'Contact'" v-else />
       <Footer />
     </div>
     <Loading v-else />
@@ -28,20 +30,20 @@ export default {
   },
   data() {
     return {
-      head: null,
+      header: null,
       projects: null,
       contact: null,
     };
   },
   created() {
-    this.getHead();
+    this.getHeader();
     this.getProjects();
     this.getContact();
   },
   methods: {
-    async getHead() {
-      const contentType = "head";
-      this.head = await this.get(contentType);
+    async getHeader() {
+      const contentType = "header";
+      this.header = await this.get(contentType);
     },
     async getProjects() {
       const contentType = "projects";
@@ -53,7 +55,7 @@ export default {
     },
     async get(contentType) {
       let response;
-      if (this.head && this.projects && this.contact) return;
+      if (this.header && this.projects && this.contact) return;
       try {
         response = await fetch(
           `${process.env.VUE_APP_PROFILE_DATA_URL}/${contentType}`
@@ -66,7 +68,7 @@ export default {
     async getAll() {
       let response = await fetch(process.env.VUE_APP_BACKUP_PROFILE_DATA_URL);
       response = await response.json();
-      this.head = response.header;
+      this.header = response.header;
       this.projects = response.projects;
       this.contact = response.contact;
     },

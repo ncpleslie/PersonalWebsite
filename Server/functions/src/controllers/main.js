@@ -1,24 +1,34 @@
-const profileData = require('../websiteData').getProfileData();
-/*
-    All requests will return a basic JSON object
-    containing an data declared above ("profileData").
-*/
-exports.getHead = (req, res, next) => {
-    res.status(200).json(
-        profileData.header
-    );
+const admin = require('firebase-admin');
+admin.initializeApp();
+
+exports.getHeader = (req, res, next) => {
+    const ref = dbRef('header');
+    sendResponse(ref, res);
 }
 
 exports.getProjects = (req, res, next) => {
-    res.status(200).json(profileData.projects);
+    const ref = dbRef('projects');
+    sendResponse(ref, res);
 }
 
 exports.getContact = (req, res, next) => {
-    res.status(200).json(profileData.contact);
+    const ref = dbRef('contact');
+    sendResponse(ref, res);
 }
 
 exports.getAll = (req, res, next) => {
-    res.status(200).json(
-        profileData
-    );
+    const ref = dbRef();
+    sendResponse(ref, res);
+}
+
+const dbRef = (reference) => {
+    return admin.database().ref(reference);
+}
+
+const sendResponse = (ref, res) => {
+    ref.on("value", (snapshot) => {
+        res.status(200).json(
+            snapshot.val()
+        );
+    });
 }
