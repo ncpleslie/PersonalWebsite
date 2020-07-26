@@ -9,14 +9,17 @@ const mainController = require('./controllers/main');
 
 // Routes are declared here
 let header = app();
-header.use('/header', mainController.getHeader);
+header.use('/', mainController.getHeader);
 header = errorHandling(header);
+
 let projects = app();
-projects.use('/projects', mainController.getProjects);
+projects.use('/', mainController.getProjects);
 projects = errorHandling(projects);
+
 let contact = app();
-contact.use('/contact', mainController.getContact);
+contact.use('/', mainController.getContact);
 contact = errorHandling(contact);
+
 let all = app();
 all.use('/', mainController.getAll);
 all = errorHandling(all);
