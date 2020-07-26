@@ -4,7 +4,7 @@ const app = require('./util/app');
 const errorHandling = require('./util/error');
 
 // const mainRoutes = require('./routes/main');
-const mainController = require('../controllers/main');
+const mainController = require('./controllers/main');
 // const authRoutes = require('./routes/auth');
 
 // Routes are declared here
