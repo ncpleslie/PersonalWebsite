@@ -12,7 +12,7 @@
             "title": "Edge Computer Vision",
             "description": "A security camera system with on-device processing to detect, track and log multiple objects. This includes license plates, people and vehicles",
             "technology": "Python, OpenCV, OpenVINO",
-            "imageUrl": "thumbnails/small/security_camera_showcase.png",
+            "imageUrl": "thumbnails/small/security_camera_showcase.jpg",
             "projectUrl": ""
         },
         {
@@ -26,35 +26,35 @@
             "title": "C3 Church Mobile App",
             "description": "A mobile application for the congregation to receive updates and relevant news about the church",
             "technology": "Dart, Flutter, Scoped Model, Facebook's GraphQL",
-            "imageUrl": "thumbnails/small/church_showcase.png",
+            "imageUrl": "thumbnails/small/church_showcase.jpg",
             "githubUrl": "https://github.com/ncpleslie/C3Church"
         },
         {
             "title": "Date Night",
             "description": "Date Night is a cross-platform mobile app designed to make your relationship easier. Users enter their date ideas and an unbiased decision is returned. Other users date ideas are displayed on the home-screen",
             "technology": "Dart, Flutter, Firebase Realtime Database",
-            "imageUrl": "thumbnails/small/date_night_showcase.png",
+            "imageUrl": "thumbnails/small/date_night_showcase.jpg",
             "githubUrl": "https://github.com/ncpleslie/date_night"
         },
         {
             "title": "PHP Social Network",
             "description": "Created a secure PHP website that allows for authentication and authorization, as well as creating, updating and deleting forum posts and updating and deleting user profile information",
             "technology": "PHP, SQL, MySQL",
-            "imageUrl": "thumbnails/small/sudoku_php_showcase.png",
+            "imageUrl": "thumbnails/small/sudoku_php_showcase.jpg",
             "githubUrl": "https://github.com/ncpleslie/SocialNetworkPHP/tree/MVC"
         },
         {
             "title": "Sudoku Windows Desktop Game",
             "description": "A basic Sudoku desktop game following the MVVM-C architecture. Users are tracked and rated based on time. Levels can be easily added and games saved",
             "technology": "C#, WPF, MVVM-C",
-            "imageUrl": "thumbnails/small/sudoku_showcase.png",
+            "imageUrl": "thumbnails/small/sudoku_showcase.jpg",
             "githubUrl": "https://github.com/ncpleslie/SudokuWPF"
         },
         {
             "title": "One Thing, Four Ways",
             "description": "A file upload system was developed that could receive a text files containing numbers and calculate correlation and regression. Four services were developed using four different technologies",
             "technology": "JavaScript, React, Vue, NodeJS, Express, Bootstrap-Vue",
-            "imageUrl": "thumbnails/small/one_idea_four_ways_showcase.png",
+            "imageUrl": "thumbnails/small/one_idea_four_ways_showcase.jpg",
             "projectUrl": "https://6t14c.codesandbox.io/",
             "githubUrl": "https://github.com/ncpleslie/PR280-Assignment2"
         },
@@ -62,7 +62,7 @@
             "title": "Vector LTD Database",
             "description": "The award winning relational database built for Vector Energy, using MySQL. Used to stored information received from Smart Power Meters",
             "technology": "MySQL, SQL, ERD",
-            "imageUrl": "thumbnails/small/vector_erd_showcase.png",
+            "imageUrl": "thumbnails/small/vector_erd_showcase.jpg",
             "githubUrl": "https://github.com/ncpleslie/VectorLTD_SmartMeter_Database"
         },
 
@@ -70,7 +70,7 @@
             "title": "Wizard Saves the City",
             "description": "A platform game about a wizard, some cones, and an earthquake. Featuring three unique levels, an annoying soundtrack and mobile controls",
             "technology": "JavaScript, Phaser 3",
-            "imageUrl": "thumbnails/small/phaser_game_showcase.png",
+            "imageUrl": "thumbnails/small/phaser_game_showcase.jpg",
             "projectUrl": "https://ncpleslie.github.io/PlatformGame/",
             "githubUrl": "https://github.com/ncpleslie/PlatformGame"
         }
