@@ -1,4 +1,4 @@
-const profileData = require('../websiteData').getProfileData();
+const profileData = require('../util/website_data').getProfileData();
 /*
     All requests will return a basic JSON object
     containing an data declared above ("profileData").
