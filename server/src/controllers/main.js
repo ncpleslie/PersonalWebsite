@@ -3,7 +3,7 @@ const profileData = require('../util/website_data').getProfileData();
     All requests will return a basic JSON object
     containing an data declared above ("profileData").
 */
-exports.getHead = (req, res, next) => {
+exports.getHeader = (req, res, next) => {
     res.status(200).json(
         profileData.header
     );

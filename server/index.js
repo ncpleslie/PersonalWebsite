@@ -1,5 +1,5 @@
-require('./src/util/websiteData').init('website_data.json');
-const app = require('./app');
+require('./src/util/website_data').init('../../website_data.json');
+const app = require('./src/app');
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
