@@ -1,24 +1,40 @@
-const profileData = require('../util/website_data').getProfileData();
-/*
-    All requests will return a basic JSON object
-    containing an data declared above ("profileData").
-*/
+const admin = require('firebase-admin');
+const serviceAccount = require(require('path').join(__dirname, "../../ncpleslie-api-firebase-adminsdk.json"));
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: "https://ncpleslie-api.firebaseio.com"
+});
+
 exports.getHeader = (req, res, next) => {
-    res.status(200).json(
-        profileData.header
-    );
+    const ref = dbRef('header');
+    sendResponse(ref, res);
 }
 
 exports.getProjects = (req, res, next) => {
-    res.status(200).json(profileData.projects);
+    const ref = dbRef('projects');
+    sendResponse(ref, res);
 }
 
 exports.getContact = (req, res, next) => {
-    res.status(200).json(profileData.contact);
+    const ref = dbRef('contact');
+    sendResponse(ref, res);
 }
 
 exports.getAll = (req, res, next) => {
-    res.status(200).json(
-        profileData
-    );
+    const ref = dbRef();
+    sendResponse(ref, res);
+}
+
+// Return a reference to the Firebase RealTime database
+const dbRef = (reference) => {
+    return admin.database().ref(reference);
+}
+
+// Send a successful response with JSON data
+const sendResponse = (ref, res) => {
+    ref.once("value", (snapshot) => {
+        res.status(200).json(
+            snapshot.val()
+        );
+    });
 }

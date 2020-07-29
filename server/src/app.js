@@ -7,7 +7,7 @@ require('dotenv').config();
 const mainRoutes = require('./routes/main');
 const errorHandling = require('./middleware/error');
 
-const logging = require('./util/logging');
+// const logging = require('./util/logging');
 
 const app = express();
 
@@ -18,9 +18,9 @@ app.set('trust proxy', 1);
 app.use(express.json());
 app.use(cors());
 app.use(helmet());
-app.use(morgan('combined', {
-    stream: logging
-}));
+// app.use(morgan('combined', {
+//     stream: logging
+// }));
 
 // Routes are declared here
 app.use('/', mainRoutes);
