@@ -13,7 +13,7 @@ jobs:
 
     - name: Install npm packages
       run: |
-        cd Server/functions
+        cd serverless/functions
         npm install
 
     - name:  Deploy to Firebase
@@ -22,4 +22,4 @@ jobs:
           args: deploy --only functions
       env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          PROJECT_PATH: Server
+          PROJECT_PATH: serverless
