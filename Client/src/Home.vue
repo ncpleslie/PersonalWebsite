@@ -18,6 +18,13 @@ import Jumbotron from "./components/Jumbotron";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
 import Loading from "./components/Loading";
+import firebase from "firebase/app";
+
+import "firebase/database";
+import config from "../ncpleslie-api-firebase-adminsdk.json";
+
+firebase.initializeApp(config);
+const db = firebase.database();
 
 export default {
   name: "Home",
@@ -41,36 +48,26 @@ export default {
     this.getContact();
   },
   methods: {
-    async getHeader() {
-      const contentType = "header";
-      this.header = await this.get(contentType);
+    getHeader() {
+      if (this.header) return;
+      const ref = db.ref("header");
+      ref.once("value", (snapshot) => {
+        this.header = snapshot.val();
+      });
     },
-    async getProjects() {
-      const contentType = "projects";
-      this.projects = await this.get(contentType);
+    getProjects() {
+      if (this.projects) return;
+      const ref = db.ref("projects");
+      ref.once("value", (snapshot) => {
+        this.projects = snapshot.val();
+      });
     },
-    async getContact() {
-      const contentType = "contact";
-      this.contact = await this.get(contentType);
-    },
-    async get(contentType) {
-      let response;
-      if (this.header && this.projects && this.contact) return;
-      try {
-        response = await fetch(
-          `${process.env.VUE_APP_PROFILE_DATA_URL}/${contentType}`
-        );
-        return await response.json();
-      } catch (err) {
-        this.getAll();
-      }
-    },
-    async getAll() {
-      let response = await fetch(process.env.VUE_APP_BACKUP_PROFILE_DATA_URL);
-      response = await response.json();
-      this.header = response.header;
-      this.projects = response.projects;
-      this.contact = response.contact;
+    getContact() {
+      if (this.contact) return;
+      const ref = db.ref("contact");
+      ref.once("value", (snapshot) => {
+        this.contact = snapshot.val();
+      });
     },
   },
 };
