@@ -18,13 +18,9 @@ import Jumbotron from "./components/Jumbotron";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
 import Loading from "./components/Loading";
-import firebase from "firebase/app";
 
+import * as firebase from "firebase/app";
 import "firebase/database";
-import config from "../ncpleslie-api-firebase-adminsdk.json";
-
-firebase.initializeApp(config);
-const db = firebase.database();
 
 export default {
   name: "Home",
@@ -40,6 +36,7 @@ export default {
       header: null,
       projects: null,
       contact: null,
+      db: firebase.database(),
     };
   },
   created() {
@@ -50,21 +47,21 @@ export default {
   methods: {
     getHeader() {
       if (this.header) return;
-      const ref = db.ref("header");
+      const ref = this.db.ref("header");
       ref.once("value", (snapshot) => {
         this.header = snapshot.val();
       });
     },
     getProjects() {
       if (this.projects) return;
-      const ref = db.ref("projects");
+      const ref = this.db.ref("projects");
       ref.once("value", (snapshot) => {
         this.projects = snapshot.val();
       });
     },
     getContact() {
       if (this.contact) return;
-      const ref = db.ref("contact");
+      const ref = this.db.ref("contact");
       ref.once("value", (snapshot) => {
         this.contact = snapshot.val();
       });
