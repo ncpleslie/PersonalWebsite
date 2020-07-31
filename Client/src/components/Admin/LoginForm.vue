@@ -11,7 +11,7 @@
       aria-describedby="password-help-block"
       v-model="userData.password"
     ></b-input>
-    <b-button variant="primary" @click="onSubmit">Login</b-button>
+    <b-button type="submit" variant="primary" @click="onSubmit">Login</b-button>
   </b-form>
 </template>
 
@@ -37,10 +37,9 @@ export default {
 
 <style scoped>
 .login-form {
-  margin: 0 auto;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  max-width: 20rem;
+  min-width: 30%;
 }
 
 .login-form-input {

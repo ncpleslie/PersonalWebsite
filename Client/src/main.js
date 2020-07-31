@@ -13,7 +13,8 @@ import 'aos/dist/aos.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-import firebase from "firebase/app";
+import * as firebase from "firebase/app";
+import "firebase/auth";
 
 const config = {
   apiKey: "AIzaSyCTPuElepHtt2YHyajpj-r5aozVoe58IqE",
@@ -30,18 +31,34 @@ AOS.init()
 
 Vue.use(VueRouter);
 
-const router = new VueRouter({
-  routes: routes,
-  mode: 'history'
-});
-
 Vue.use(BootstrapVue)
 Vue.use(VueScrollTo)
 
 Vue.config.productionTip = false
 
 
-new Vue({
-  router,
-  render: h => h(App)
-}).$mount('#app')
+
+const router = new VueRouter({
+  routes: routes,
+  mode: 'history'
+});
+
+router.beforeEach((to, from, next) => {
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  const isAuthenticated = firebase.auth().currentUser;
+  if (requiresAuth && !isAuthenticated) {
+    next('/admin');
+  } else {
+    next();
+  }
+})
+
+let app;
+firebase.auth().onAuthStateChanged(() => {
+  if (!app) {
+    app = new Vue({
+      router,
+      render: h => h(App)
+    }).$mount('#app')
+  }
+})

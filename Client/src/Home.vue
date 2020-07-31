@@ -13,11 +13,11 @@
 </template>
 
 <script>
-import Project from "./components/Project";
-import Jumbotron from "./components/Jumbotron";
-import ContactForm from "./components/ContactForm";
-import Footer from "./components/Footer";
-import Loading from "./components/Loading";
+import Project from "./components/Home/Project";
+import Jumbotron from "./components/Home/Jumbotron";
+import ContactForm from "./components/Home/ContactForm";
+import Footer from "./components/Home/Footer";
+import Loading from "./components/Home/Loading";
 
 import * as firebase from "firebase/app";
 import "firebase/database";

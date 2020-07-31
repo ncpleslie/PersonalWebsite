@@ -1,6 +1,7 @@
 <template>
   <div id="admin">
-    <Login v-if="!email && !password" @userData="onReceiveUserData" />
+    <b-alert class="error" v-model="showDismissibleAlert" variant="danger" dismissible>{{error}}</b-alert>
+    <Login v-if="!user" @userData="onReceiveUserData" />
   </div>
 </template>
 
@@ -16,28 +17,33 @@ export default {
   },
   data() {
     return {
-      email: null,
-      password: null,
-      auth: null,
+      user: null,
+      auth: firebase.auth(),
+      error: null,
+      showDismissibleAlert: false,
     };
   },
   mounted() {
-    this.auth = firebase.auth();
+    try {
+      this.user = null;
+      this.auth.signOut();
+    } catch (err) {
+      this.showDismissibleAlert = true;
+      this.error = `Failed to log out. Reason: ${err}`;
+    }
   },
   methods: {
     async onReceiveUserData(value) {
-      this.email = value.email;
-      this.password = value.password;
       try {
-        const user = await this.auth.signInWithEmailAndPassword(
-          this.email,
-          this.password
+        this.showDismissibleAlert = false;
+        this.user = await this.auth.signInWithEmailAndPassword(
+          value.email.toString(),
+          value.password.toString()
         );
-        // eslint-disable-next-line no-console
-        console.log(user);
+        this.$router.replace({ name: "Edit" });
       } catch (err) {
-        // eslint-disable-next-line no-console
-        console.log(err);
+        this.showDismissibleAlert = true;
+        this.error = `Failed to log in. Reason: ${err}`;
       }
     },
   },
@@ -53,5 +59,14 @@ export default {
   color: #2c3e50;
   margin-top: 0px;
   background-color: #27272f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.error {
+  width: 60%;
 }
 </style>

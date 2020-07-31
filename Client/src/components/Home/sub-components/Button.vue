@@ -18,43 +18,43 @@ export default {
   name: "Buttons",
   props: {
     buttonType: String,
-    links: Object
+    links: Object,
   },
   data() {
     return {
       buttonData: {
         Github: {
           title: "Github",
-          img_url: require("../../assets/github.svg"),
+          img_url: require("../../../assets/github.svg"),
           alt: "Go to my Github Repo",
-          url: this.links.github
+          url: this.links.github,
         },
         LinkedIn: {
           title: "LinkedIn",
-          img_url: require("../../assets/linkedin.svg"),
+          img_url: require("../../../assets/linkedin.svg"),
           alt: "Go to my LinkedIn",
-          url: this.links.linkedIn
+          url: this.links.linkedIn,
         },
         CV: {
           title: "CV/Resume",
-          img_url: require("../../assets/resume.svg"),
+          img_url: require("../../../assets/resume.svg"),
           alt: "Go to my Resume Or CV",
-          url: this.links.CV
+          url: this.links.CV,
         },
         Contact: {
           title: "Contact",
-          img_url: require("../../assets/email.svg"),
+          img_url: require("../../../assets/email.svg"),
           alt: "Contact Me",
-          url: "#contact"
-        }
-      }
+          url: "#contact",
+        },
+      },
     };
   },
   computed: {
     getBtnData() {
       return this.buttonData[this.buttonType];
-    }
-  }
+    },
+  },
 };
 </script>
 

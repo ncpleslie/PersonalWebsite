@@ -12,11 +12,14 @@
 import ProjectCard from "./sub-components/ProjectCard";
 export default {
   props: {
-    projects: Array
+    projects: Array,
   },
   components: {
-    ProjectCard
-  }
+    ProjectCard,
+  },
+  created() {
+    this.projects = this.projects.reverse();
+  },
 };
 </script>
 

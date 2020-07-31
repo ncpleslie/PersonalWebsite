@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-jumbotron id="jumboTitle" fluid>
+    <b-jumbotron fluid>
       <template slot="header">{{header.name}}</template>
       <template slot="lead">{{header.description}}</template>
       <b-button class="project-card-button" href="#" v-scroll-to="'#projects'">See Projects</b-button>
@@ -17,17 +17,22 @@
 
 <script>
 import Button from "./sub-components/Button";
+
 export default {
   props: {
-    header: Object
+    header: Object,
   },
   components: {
-    Button
-  }
+    Button,
+  },
 };
 </script>
 
 <style scoped>
+.container {
+  width: unset;
+}
+
 .jumbotron {
   color: #fff;
   background-color: #33333d;

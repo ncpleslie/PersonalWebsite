@@ -55,7 +55,7 @@
         title="See Project"
         alt="See this program running"
       >
-        <img src="../../assets/screen.svg" alt="See this program running" />
+        <img src="../../../assets/screen.svg" alt="See this program running" />
       </b-button>
 
       <b-button
@@ -67,7 +67,7 @@
         title="No Project Provide"
         alt="No Project Provide"
       >
-        <img src="../../assets/screen.svg" alt="No Project Provide" />
+        <img src="../../../assets/screen.svg" alt="No Project Provide" />
       </b-button>
 
       <b-button
@@ -78,7 +78,7 @@
         title="See Code"
         alt="Go to the Github Repo"
       >
-        <img src="../../assets/github.svg" alt="Go to the Github Repo" />
+        <img src="../../../assets/github.svg" alt="Go to the Github Repo" />
       </b-button>
       <b-button
         v-else
@@ -88,7 +88,7 @@
         title="No Code Provided"
         alt="No Code Provided"
       >
-        <img src="../../assets/github.svg" alt="No Code Provided" />
+        <img src="../../../assets/github.svg" alt="No Code Provided" />
       </b-button>
     </div>
   </b-card>
@@ -155,9 +155,9 @@ export default {
 
 .project-card-image:hover {
   cursor: pointer;
-  border-top: 2px solid #1eb980;
-  border-left: 2px solid #1eb980;
-  border-right: 2px solid #045d56;
+  outline-color: #1eb980;
+  outline-style: outset;
+  outline-width: 2px;
   filter: drop-shadow(0.1rem 0.1rem 0.5rem #045d56);
 }
 
