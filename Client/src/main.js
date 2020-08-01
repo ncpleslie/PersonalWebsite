@@ -43,19 +43,15 @@ import {
 } from './routes';
 
 firebase.initializeApp(config);
-
-AOS.init({
-  disable: 'mobile'
-});
 Vue.use(VueRouter);
 Vue.use(VueScrollTo);
-
 Vue.config.productionTip = false
 
 const router = new VueRouter({
   routes: routes,
 });
 
+// Authenticate restricted routes
 router.beforeEach((to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
   const isAuthenticated = firebase.auth().currentUser;
@@ -71,6 +67,11 @@ firebase.auth().onAuthStateChanged(() => {
   if (!app) {
     app = new Vue({
       router,
+      created() {
+        AOS.init({
+          disable: 'mobile'
+        });
+      },
       render: h => h(App)
     }).$mount('#app')
   }
