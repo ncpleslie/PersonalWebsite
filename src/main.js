@@ -22,7 +22,8 @@ import {
   EmbedPlugin,
   TooltipPlugin,
   SpinnerPlugin,
-  FormFilePlugin
+  FormFilePlugin,
+  TabsPlugin
 } from 'bootstrap-vue';
 Vue.use(CardPlugin);
 Vue.use(FormPlugin);
@@ -37,6 +38,7 @@ Vue.use(AlertPlugin);
 Vue.use(EmbedPlugin);
 Vue.use(TooltipPlugin);
 Vue.use(SpinnerPlugin);
+Vue.use(TabsPlugin);
 
 import {
   routes
@@ -49,6 +51,7 @@ Vue.config.productionTip = false
 
 const router = new VueRouter({
   routes: routes,
+  mode: "history"
 });
 
 // Authenticate restricted routes

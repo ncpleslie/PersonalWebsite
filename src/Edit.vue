@@ -1,72 +1,117 @@
 <template>
   <div id="edit">
-    <b-button variant="primary" @click="onSave">Output All To File</b-button>
+    <b-card class="edit-card" no-body>
+      <b-tabs class="edit-tab" small card>
+        <b-tab title="New Project" active>
+          <b-form @submit.stop.prevent class="edit-form">
+            <h2>Add a New Project</h2>
 
-    <b-form @submit.stop.prevent class="edit-form">
-      <h2>Add a New Project</h2>
+            <b-input class="edit-form-input" v-model="newProject.title" placeholder="Title"></b-input>
+            <b-input
+              class="edit-form-input"
+              v-model="newProject.description"
+              placeholder="Description"
+            ></b-input>
+            <b-input
+              class="edit-form-input"
+              v-model="newProject.technology"
+              placeholder="Technology"
+            ></b-input>
+            <b-input
+              class="edit-form-input"
+              v-model="newProject.githubUrl"
+              placeholder="GitHub URL"
+            ></b-input>
+            <b-input
+              class="edit-form-input"
+              v-model="newProject.projectUrl"
+              placeholder="Project URL"
+            ></b-input>
+            <b-input
+              class="edit-form-input"
+              v-model="newProject.imageUrl"
+              placeholder="Image or YouTube URL"
+            ></b-input>
+            <b-form-file
+              class="edit-form-input"
+              v-model="newImageFile.newProject"
+              :state="Boolean(newImageFile.newProject)"
+              placeholder="Choose a file or drop it here..."
+              drop-placeholder="Drop image file here..."
+              accept=".jpg, .png, .gif, .webp, .jpeg"
+            ></b-form-file>
 
-      <b-input class="edit-form-input" v-model="newProject.title" placeholder="Title"></b-input>
-      <b-input class="edit-form-input" v-model="newProject.description" placeholder="Description"></b-input>
-      <b-input class="edit-form-input" v-model="newProject.technology" placeholder="Technology"></b-input>
-      <b-input class="edit-form-input" v-model="newProject.githubUrl" placeholder="GitHub URL"></b-input>
-      <b-input class="edit-form-input" v-model="newProject.projectUrl" placeholder="Project URL"></b-input>
-      <b-input
-        class="edit-form-input"
-        v-model="newProject.imageUrl"
-        placeholder="Image or YouTube URL"
-      ></b-input>
-      <b-form-file
-        class="edit-form-input"
-        v-model="newImageFile"
-        :state="Boolean(newImageFile)"
-        placeholder="Choose a file or drop it here..."
-        drop-placeholder="Drop image file here..."
-        accept=".jpg, .png, .gif, .webp, .jpeg"
-      ></b-form-file>
+            <b-button type="submit" variant="primary" @click="addNewProject">Add</b-button>
+          </b-form>
+        </b-tab>
+        <b-tab title="Current Projects">
+          <div v-if="projects" class="edit-form-projects">
+            <b-form
+              @submit.stop.prevent
+              v-for="(project, index) in projects"
+              :key="index"
+              class="edit-form"
+            >
+              <h3>Project {{ index+1 }}</h3>
+              <b-input class="edit-form-input" v-model="project.title" placeholder="Title"></b-input>
+              <b-input
+                class="edit-form-input"
+                v-model="project.description"
+                placeholder="Description"
+              ></b-input>
+              <b-input
+                class="edit-form-input"
+                v-model="project.technology"
+                placeholder="Technology"
+              ></b-input>
+              <b-input class="edit-form-input" v-model="project.githubUrl" placeholder="GitHub URL"></b-input>
+              <b-input
+                class="edit-form-input"
+                v-model="project.projectUrl"
+                placeholder="Project URL"
+              ></b-input>
+              <b-input class="edit-form-input" v-model="project.imageUrl" placeholder="Image URL"></b-input>
 
-      <b-button type="submit" variant="primary" @click="addNewProject">Add</b-button>
-    </b-form>
+              <b-form-file
+                class="edit-form-input"
+                v-model="newImageFile.index"
+                :state="Boolean(newImageFile.index)"
+                placeholder="Choose a file or drop it here..."
+                drop-placeholder="Drop image file here..."
+                accept=".jpg, .png, .gif, .webp, .jpeg"
+              ></b-form-file>
 
-    <div v-if="projects" class="edit-form-projects">
-      <b-form
-        @submit.stop.prevent
-        v-for="(project, index) in projects"
-        :key="index"
-        class="edit-form"
-      >
-        <h3>Project {{ index+1 }}</h3>
-        <b-input class="edit-form-input" v-model="project.title" placeholder="Title"></b-input>
-        <b-input class="edit-form-input" v-model="project.description" placeholder="Description"></b-input>
-        <b-input class="edit-form-input" v-model="project.technology" placeholder="Technology"></b-input>
-        <b-input class="edit-form-input" v-model="project.githubUrl" placeholder="GitHub URL"></b-input>
-        <b-input class="edit-form-input" v-model="project.projectUrl" placeholder="Project URL"></b-input>
-        <b-input class="edit-form-input" v-model="project.imageUrl" placeholder="Image URL"></b-input>
-        <b-button type="submit" variant="primary" @click="onSubmit('projects', index)">Update</b-button>
-      </b-form>
-    </div>
+              <b-button type="submit" variant="primary" @click="onSubmit('projects', index)">Update</b-button>
+            </b-form>
+          </div>
+        </b-tab>
+        <b-tab title="Name and Contact">
+          <b-form v-if="header" @submit.stop.prevent class="edit-form">
+            <h2>Header Information</h2>
+            <label class="input-form-label" for="name">Name</label>
+            <b-input class="edit-form-input" v-model="header.name" id="name"></b-input>
 
-    <b-form v-if="header" @submit.stop.prevent class="edit-form">
-      <h2>Header Information</h2>
-      <label class="input-form-label" for="name">Name</label>
-      <b-input class="edit-form-input" v-model="header.name" id="name"></b-input>
+            <label class="input-form-label" for="description">Description</label>
+            <b-input class="edit-form-input" v-model="header.description" id="description"></b-input>
 
-      <label class="input-form-label" for="description">Description</label>
-      <b-input class="edit-form-input" v-model="header.description" id="description"></b-input>
+            <b-input class="edit-form-input" v-model="header.links.CV"></b-input>
+            <b-input class="edit-form-input" v-model="header.links.github"></b-input>
+            <b-input class="edit-form-input" v-model="header.links.linkedIn"></b-input>
+            <b-button type="submit" variant="primary" @click="onSubmit('header')">Update</b-button>
+          </b-form>
 
-      <b-input class="edit-form-input" v-model="header.links.CV"></b-input>
-      <b-input class="edit-form-input" v-model="header.links.github"></b-input>
-      <b-input class="edit-form-input" v-model="header.links.linkedIn"></b-input>
-      <b-button type="submit" variant="primary" @click="onSubmit('header')">Update</b-button>
-    </b-form>
+          <b-form v-if="contact" @submit.stop.prevent class="edit-form">
+            <h2>Contact Information</h2>
 
-    <b-form v-if="contact" @submit.stop.prevent class="edit-form">
-      <h2>Contact Information</h2>
+            <b-input class="edit-form-input" v-model="contact.email"></b-input>
+            <b-input class="edit-form-input" v-model="contact.formSpringUrl"></b-input>
 
-      <b-input class="edit-form-input" v-model="contact.email"></b-input>
-      <b-input class="edit-form-input" v-model="contact.formSpringUrl"></b-input>
-
-      <b-button type="submit" variant="primary" @click="onSubmit('contact')">Update</b-button>
-    </b-form>
+            <b-button type="submit" variant="primary" @click="onSubmit('contact')">Update</b-button>
+          </b-form>
+        </b-tab>
+      </b-tabs>
+    </b-card>
+    <b-button variant="primary" @click="onSave">Backup Database To File</b-button>
   </div>
 </template>
 
@@ -83,7 +128,7 @@ export default {
       contact: null,
       db: firebase.database(),
       newProject: {},
-      newImageFile: null,
+      newImageFile: { newProject: null },
     };
   },
   created() {
@@ -126,18 +171,9 @@ export default {
     async addNewProject() {
       if (this.projects && this.newProject) {
         if (this.newImageFile) {
-          try {
-            const storage = firebase.storage();
-            const storageRef = storage.ref();
-            const fullImageRef = storageRef.child(
-              `projects/${this.newImageFile.name}`
-            );
-            const snapshot = await fullImageRef.put(this.newImageFile);
-            const imageUrl = await snapshot.ref.getDownloadURL();
-            this.newProject.imageUrl = imageUrl;
-          } catch (err) {
-            alert(`An error occured. Reason: ${err}`);
-          }
+          this.newProject.imageUrl = this.uploadImage(
+            this.newImageFile.newProject
+          );
         }
 
         try {
@@ -149,7 +185,22 @@ export default {
         }
       }
     },
-    onSubmit(type, index) {
+    async uploadImage(image) {
+      let imageUrl;
+      if (image) {
+        try {
+          const storage = firebase.storage();
+          const storageRef = storage.ref();
+          const fullImageRef = storageRef.child(`projects/${image.name}`);
+          const snapshot = await fullImageRef.put(image);
+          imageUrl = await snapshot.ref.getDownloadURL();
+        } catch (err) {
+          alert(`An error occured. Reason: ${err}`);
+        }
+      }
+      return imageUrl;
+    },
+    async onSubmit(type, index) {
       if (type === "header") {
         firebase.database().ref("header").update(this.header);
       }
@@ -159,6 +210,14 @@ export default {
       }
 
       if (type === "projects") {
+        if (this.newImageFile.index) {
+          // eslint-disable-next-line no-console
+          console.log(this.projects[index].imageUrl);
+          this.projects[index].imageUrl = await this.uploadImage(
+            this.newImageFile.index
+          );
+        }
+
         firebase
           .database()
           .ref("projects/" + index)
@@ -198,16 +257,21 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 0px;
-  background-color: #27272f;
+  background-color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
+.edit-card {
+  width: 70%;
+  margin: 1rem;
+}
+
 h2,
 h3 {
-  color: white;
+  color: #33333d;
 }
 
 .edit-form-projects {
@@ -215,9 +279,9 @@ h3 {
 }
 
 .edit-form {
-  outline-color: #1eb980;
+  outline-color: #aaa;
   outline-style: outset;
-  outline-width: 2px;
+  outline-width: 1px;
   padding: 1rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -226,8 +290,8 @@ h3 {
 
 .edit-form-input {
   margin-bottom: 2rem;
-  color: white;
-  background-color: #33333d;
+  color: #33333d;
+  background-color: #fff;
 }
 
 .input-form-label {
