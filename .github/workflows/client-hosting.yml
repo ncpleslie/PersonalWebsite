@@ -1,9 +1,8 @@
 name: Build and Deploy to Firebase Hosting
-on:
+'on':
   push:
     branches:
       - master
-
 jobs:
   build:
     name: Build
@@ -13,12 +12,12 @@ jobs:
         uses: actions/checkout@master
       - name: Install Dependencies
         run: |
-        cd Client
-        npm install
+          cd Client
+          npm install
       - name: Build
         run: |
-        cd Client
-        npm run build
+          cd Client
+          npm run build
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
@@ -41,5 +40,5 @@ jobs:
         with:
           args: deploy --only hosting
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          FIREBASE_TOKEN: '${{ secrets.FIREBASE_TOKEN }}'
           PROJECT_PATH: Client
