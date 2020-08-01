@@ -1,7 +1,7 @@
 ## Personal Website
 
-![Title Section](./Pictures/titlepage.png)
-![Projects Section](./Pictures/projects.png)
+![Title Section](./documentation/titlepage.png)
+![Projects Section](./documentation/projects.png)
 Feel free to use this website any way you want.
 
 ## Features

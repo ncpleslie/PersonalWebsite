@@ -19,9 +19,7 @@ jobs:
         with:
             node-version: ${{ matrix.node-version }}
       - run: npm install
-        working-directory: Client
       - run: npm run build --if-present
-        working-directory: Client
 
   deploy:
     name: Deploy
@@ -33,7 +31,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source-directory: 'Client/dist'
+          source-directory: 'dist'
           destination-github-username: 'ncpleslie'
           destination-repository-name: 'ncpleslie.github.io'
           user-email: ncpleslie@gmail.com
