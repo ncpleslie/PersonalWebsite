@@ -2,6 +2,7 @@
   "name": "nick-leslie-personal-website",
   "version": "0.1.0",
   "private": true,
+  "description": "A personal website for Nick Leslie",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -16,6 +17,8 @@
     "vue-scrollto": "^2.18.1"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.1.0",
+    "@fullhuman/vue-cli-plugin-purgecss": "^2.2.0",
     "@vue/cli-plugin-babel": "^3.12.1",
     "@vue/cli-plugin-eslint": "^3.12.1",
     "@vue/cli-service": "^4.4.6",
@@ -53,6 +56,5 @@
     "Leslie",
     "Software",
     "Engineer"
-  ],
-  "description": "A personal website for Nick Leslie"
+  ]
 }
