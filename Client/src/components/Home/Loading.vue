@@ -1,19 +1,14 @@
 <template>
   <div class="loading">
-    <Circle8 v-if="!this.title"></Circle8>
-    <Stretch v-else></Stretch>
+    <b-spinner variant="success"></b-spinner>
     <h1>Loading {{ this.title }}</h1>
   </div>
 </template>
 
 <script>
-import { Circle8, Stretch } from "vue-loading-spinner";
 export default {
   name: "Loading",
-  components: {
-    Circle8,
-    Stretch,
-  },
+
   props: {
     title: String,
   },
