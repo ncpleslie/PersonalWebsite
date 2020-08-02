@@ -119,6 +119,7 @@
 import * as firebase from "firebase/app";
 import "firebase/database";
 import "firebase/storage";
+import "firebase/auth";
 
 export default {
   data() {
@@ -245,6 +246,15 @@ export default {
         this.contact = snapshot.val();
       });
     },
+  },
+  beforeRouteEnter(to, from, next) {
+    const requiresAuth = to.matched.some((record) => record.meta.requiresAuth);
+    const isAuthenticated = firebase.auth().currentUser;
+    if (requiresAuth && !isAuthenticated) {
+      next("/admin");
+    } else {
+      next();
+    }
   },
 };
 </script>

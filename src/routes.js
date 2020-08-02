@@ -1,6 +1,6 @@
 import Home from './Home.vue';
-import Admin from './Admin.vue';
-import Edit from './Edit.vue';
+const Admin = () => import('./Admin.vue');
+const Edit = () => import('./Edit.vue');
 
 export const routes = [{
     path: '',
