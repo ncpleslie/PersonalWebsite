@@ -44,6 +44,8 @@ import {
   routes
 } from './routes';
 
+import './registerServiceWorker'
+
 firebase.initializeApp(config);
 Vue.use(VueRouter);
 Vue.use(VueScrollTo);
@@ -60,9 +62,7 @@ firebase.auth().onAuthStateChanged(() => {
     app = new Vue({
       router,
       created() {
-        AOS.init({
-          disable: 'mobile'
-        });
+        AOS.init();
       },
       render: h => h(App)
     }).$mount('#app')
