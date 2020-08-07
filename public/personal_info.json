@@ -1,0 +1,15 @@
+{
+    "header": {
+        "name": "Nick Leslie",
+        "description": "Software Developer | Fullstack Web Developer | Mobile Developer",
+        "links": {
+            "CV": "NickLeslieCV.pdf",
+            "github": "https://github.com/ncpleslie",
+            "linkedIn": "https://www.linkedin.com/in/nicholas-leslie/"
+        }
+    },
+    "contact": {
+        "email": "me@nickleslie.dev",
+        "formSpringUrl": "https://formspree.io/xrgkbgrb"
+    }
+}

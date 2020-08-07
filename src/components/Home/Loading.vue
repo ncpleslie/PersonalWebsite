@@ -18,8 +18,7 @@ export default {
 <style scoped>
 .loading {
   color: #fff;
-  background-color: #33333d;
-  height: 100vh;
+  height: 50vh;
   margin-bottom: 0px;
   display: flex;
   justify-content: center;

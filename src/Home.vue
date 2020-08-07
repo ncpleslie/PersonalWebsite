@@ -1,14 +1,12 @@
 <template>
   <div id="home">
-    <div v-if="header">
-      <Jumbotron v-if="header" :header="header" />
-      <Project v-if="projects" id="projects" :projects="projects" />
-      <Loading :title="'Projects'" v-else />
-      <ContactForm v-if="contact" id="contact" :contact="contact" />
-      <Loading :title="'Contact'" v-else />
-      <Footer />
-    </div>
-    <Loading v-else />
+    <Jumbotron v-if="header" :header="header" />
+    <Loading :title="''" v-else />
+    <Project v-if="projects" id="projects" :projects="projects" />
+    <Loading :title="'Projects'" v-else />
+    <ContactForm v-if="contact" id="contact" :contact="contact" />
+    <Loading :title="'Contact'" v-else />
+    <Footer />
   </div>
 </template>
 
@@ -22,6 +20,8 @@ import Loading from "./components/Home/Loading";
 import * as firebase from "firebase/app";
 import "firebase/database";
 
+import personalInfo from "../public/personal_info.json";
+
 export default {
   name: "Home",
   components: {
@@ -33,6 +33,7 @@ export default {
   },
   data() {
     return {
+      personalInfo: personalInfo,
       header: null,
       projects: null,
       contact: null,
@@ -47,10 +48,8 @@ export default {
   methods: {
     getHeader() {
       if (this.header) return;
-      const ref = this.db.ref("header");
-      ref.once("value", (snapshot) => {
-        this.header = snapshot.val();
-      });
+      if (this.personalInfo && this.personalInfo.header)
+        this.header = this.personalInfo.header;
     },
     getProjects() {
       if (this.projects) return;
@@ -61,10 +60,8 @@ export default {
     },
     getContact() {
       if (this.contact) return;
-      const ref = this.db.ref("contact");
-      ref.once("value", (snapshot) => {
-        this.contact = snapshot.val();
-      });
+      if (this.personalInfo && this.personalInfo.contact)
+        this.contact = this.personalInfo.contact;
     },
   },
 };
