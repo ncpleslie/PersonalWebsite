@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-jumbotron fluid>
-      <template slot="header">{{header.name}}</template>
+      <template class="jumbo_header" slot="header">{{header.name}}</template>
       <template slot="lead">{{header.description}}</template>
       <b-button class="project-card-button" href="#" v-scroll-to="'#projects'">See Projects</b-button>
       <hr />
@@ -12,6 +12,7 @@
         <Button :buttonType="'Contact'" :links="header.links"></Button>
       </div>
     </b-jumbotron>
+    <hr class="line" />
   </div>
 </template>
 
@@ -33,9 +34,13 @@ export default {
   width: unset;
 }
 
+.line {
+  border-top: 1px solid rgba(92, 92, 92, 0.1);
+}
+
 .jumbotron {
   color: #fff;
-  background-color: #33333d;
+  background-color: var(--card);
   height: 100vh;
   margin-bottom: 0px;
   display: flex;
@@ -43,9 +48,17 @@ export default {
   align-items: center;
 }
 
+.jumbotron h1 {
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  text-shadow: none;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .project-card-button {
   border-radius: 0px;
-  border: 2px solid #045d56;
+  border: 2px solid var(--accent1);
   background-color: #27272f !important;
 }
 
@@ -58,7 +71,7 @@ export default {
 
 .jumbotron-button-container .project-card-button {
   border-radius: 0px;
-  border: 2px solid #045d56;
+  border: 2px solid var(--accent1);
   background-color: #27272f !important;
   margin-left: 1rem;
   display: flex;
@@ -67,7 +80,7 @@ export default {
 }
 
 .project-card-button:hover {
-  border: 2px solid #1eb980;
+  border: 2px solid var(--accent2);
   background-color: #33333d !important;
   cursor: pointer;
   -webkit-box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);

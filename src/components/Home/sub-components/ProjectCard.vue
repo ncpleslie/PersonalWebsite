@@ -1,15 +1,15 @@
 <template>
   <!-- Project Cards start here -->
-  <b-card
+  <!-- <b-card
     data-aos="fade-up"
     data-aos-duration="500"
     data-aos-easing="ease-in-out"
     data-aos-once="true"
     class="mb-2 project-card"
     footer-tag="footer"
-  >
-    <!-- Image section -->
-    <div v-if="isPicture()">
+  >-->
+  <!-- Image section -->
+  <!-- <div v-if="isPicture()">
       <a v-if="getUrl()" :href="getUrl()" alt="Go to project" :title="project.title">
         <b-card-img-lazy
           v-b-tooltip.hover
@@ -18,9 +18,9 @@
           :alt="project.title"
           :title="project.title"
         ></b-card-img-lazy>
-      </a>
-      <!-- If a project has no code or preview then remove all hover styling -->
-      <b-card-img-lazy
+  </a>-->
+  <!-- If a project has no code or preview then remove all hover styling -->
+  <!-- <b-card-img-lazy
         class="project-card-image no-link"
         v-else-if="!getUrl()"
         :src="project.imageUrl"
@@ -28,25 +28,25 @@
         :alt="project.title"
         :title="project.title"
       ></b-card-img-lazy>
-    </div>
-    <!-- Display youtube frame -->
-    <div v-if="isYoutube()">
+  </div>-->
+  <!-- Display youtube frame -->
+  <!-- <div v-if="isYoutube()">
       <b-embed type="iframe" aspect="16by9" :src="project.imageUrl" allowfullscreen></b-embed>
-    </div>
-    <!-- Project card title starts here -->
-    <b-card-body>
+  </div>-->
+  <!-- Project card title starts here -->
+  <!-- <b-card-body>
       <a :href="getUrl()" alt="Go to project">
         <b-card-title class="project-card-title" :title="project.title"></b-card-title>
       </a>
-      <hr />
-      <!-- Project card description starts here -->
-      <b-card-text class="project-card-description">{{ project.description }}</b-card-text>
-      <!-- Project card technology starts here -->
-      <b-card-text class="project-card-tech">{{ project.technology }}</b-card-text>
-    </b-card-body>
+  <hr />-->
+  <!-- Project card description starts here -->
+  <!-- <b-card-text class="project-card-description">{{ project.description }}</b-card-text> -->
+  <!-- Project card technology starts here -->
+  <!-- <b-card-text class="project-card-tech">{{ project.technology }}</b-card-text>
+  </b-card-body>-->
 
-    <!-- Project card footer and buttons to code/preview starts here -->
-    <div slot="footer" class="project-card-footer">
+  <!-- Project card footer and buttons to code/preview starts here -->
+  <!-- <div slot="footer" class="project-card-footer">
       <b-button
         v-if="project.projectUrl"
         class="project-card-button"
@@ -91,7 +91,29 @@
         <img src="../../../assets/github.svg" alt="No Code Provided" />
       </b-button>
     </div>
-  </b-card>
+  </b-card>-->
+
+  <article class="custom-card">
+    <header class="custom-card_header">
+      <h2>{{project.title}}</h2>
+    </header>
+    <div class="custom-card_img">
+      <img v-if="isPicture()" :src="project.imageUrl" />
+      <b-embed
+        v-if="isYoutube()"
+        type="iframe"
+        aspect="16by9"
+        :src="project.imageUrl"
+        allowfullscreen
+      ></b-embed>
+    </div>
+    <div class="custom-card_description">
+      <p>{{ project.description }}</p>
+    </div>
+    <div class="custom-card_technology">
+      <p v-for="(aTech, index) in project.technology.split(',')" :key="index">{{ aTech }}</p>
+    </div>
+  </article>
 </template>
 
 <script>
@@ -131,6 +153,88 @@ export default {
 </script>
 
 <style scoped>
+.custom-card {
+  color: #d3d3d3;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 400px;
+  padding: 1.5rem;
+  border-radius: 0.25rem;
+  background: var(--card);
+  box-shadow: -1rem 0.5rem 3rem 0.5rem rgba(0, 0, 0, 0.87);
+  transition: all 0.2s ease-in-out;
+}
+
+.custom-card:hover {
+  transform: scale3d(1.1, 1.1, 1.1);
+  z-index: 10;
+}
+
+.custom-card_header h2 {
+  height: 5rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  border-bottom: 1px solid rgba(92, 92, 92, 0.1);
+}
+
+.custom-card_header h2:hover {
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  text-shadow: none;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.custom-card_img {
+  position: relative;
+}
+
+.custom-card_img img {
+  width: 100%;
+}
+
+.custom-card_description {
+  height: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(92, 92, 92, 0.1);
+}
+
+.custom-card_technology {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: auto;
+  margin-bottom: 0;
+  padding: 0.5rem 0 1rem;
+  line-height: 2;
+}
+
+.custom-card_technology p {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.5rem;
+  color: #b5b5bd;
+  text-transform: uppercase;
+  font-size: 0.66rem;
+  border: 3px solid #28242f;
+  padding: 0.2rem 0.85rem 0.25rem;
+  position: relative;
+  transition: 0.2s;
+}
+
+.custom-card_technology p:hover {
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  text-shadow: none;
+  box-decoration-break: clone;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-box-decoration-break: clone;
+  background-clip: text;
+  border-color: white;
+  transform: translateY(-0.1rem);
+}
+
 .project-card {
   background-color: #33333d;
   border-radius: 0px;

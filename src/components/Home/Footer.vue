@@ -24,18 +24,18 @@ h2 {
 }
 
 a:link {
-  color: #1eb980;
+  color: var(--accent1);
 }
 
 a:visited {
-  color: #1eb980;
+  color: var(--accent1);
 }
 
 a:hover {
-  color: #045d56;
+  color: var(--accent2);
 }
 
 a:active {
-  color: #1eb980;
+  color: var(--accent2);
 }
 </style>

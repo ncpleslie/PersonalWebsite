@@ -26,10 +26,15 @@ export default {
 <style scoped>
 .line {
   width: 60%;
+  border-top: 1px solid rgba(92, 92, 92, 0.1);
 }
 
 h2 {
-  color: white;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  text-shadow: none;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 3rem;
   margin-top: 2rem;
 }
@@ -40,8 +45,8 @@ h2 {
   justify-content: center;
 }
 
-.project-card-group > .card {
-  margin: 2rem;
+.project-card-group > .custom-card {
+  margin: 1rem;
   flex: 0 1 95%;
   max-width: 30rem;
 }

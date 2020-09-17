@@ -46,14 +46,14 @@
 <script>
 export default {
   props: {
-    contact: Object
+    contact: Object,
   },
   methods: {
     onSubmit(evt) {
       evt.preventDefault();
       alert(JSON.stringify(this.form));
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -67,7 +67,7 @@ export default {
   padding-bottom: 2rem;
   padding-top: 1rem;
   color: white;
-  background-color: #33333d;
+  background-color: var(--card);
 }
 
 .contact-form {
@@ -86,7 +86,7 @@ h3 {
 }
 
 .contact-form-input:focus {
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.16), 0 0 0 2px #045d56;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.16), 0 0 0 2px var(--accent1);
 }
 
 .contact-form-input::placeholder {
@@ -96,13 +96,13 @@ h3 {
 
 .contact-button {
   border-radius: 0px;
-  border: 2px solid #045d56;
+  border: 2px solid var(--accent1);
   background-color: #27272f !important;
   margin-top: 2rem;
 }
 
 .contact-button:hover {
-  border: 2px solid #1eb980;
+  border: 2px solid var(--accent2);
   background-color: #33333d !important;
   cursor: pointer;
   -webkit-box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
@@ -112,24 +112,24 @@ h3 {
 
 .contact-button:active,
 .contact-button:focus {
-  border: 2px solid #045d56;
+  border: 2px solid var(--accent2);
   background-color: #27272f !important;
 }
 
 a:link {
-  color: #1eb980;
+  color: var(--accent1);
 }
 
 a:visited {
-  color: #1eb980;
+  color: var(--accent1);
 }
 
 a:hover {
-  color: #045d56;
+  color: var(--accent2);
 }
 
 a:active {
-  color: #1eb980;
+  color: var(--accent2);
 }
 </style>
 

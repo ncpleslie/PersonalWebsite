@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Login from "./components/Admin/LoginForm";
+import Login from "../components/Admin/LoginForm";
 import * as firebase from "firebase/app";
 import "firebase/auth";
 
