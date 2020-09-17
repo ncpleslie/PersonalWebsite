@@ -162,7 +162,7 @@ export default {
   padding: 1.5rem;
   border-radius: 0.25rem;
   background: var(--card);
-  box-shadow: -1rem 0.5rem 3rem 0.5rem rgba(0, 0, 0, 0.87);
+  box-shadow: 0 0.5rem 3rem 0.5rem rgba(0, 0, 0, 0.87);
   transition: all 0.2s ease-in-out;
 }
 
@@ -232,7 +232,8 @@ export default {
   -webkit-box-decoration-break: clone;
   background-clip: text;
   border-color: white;
-  transform: translateY(-0.1rem);
+  transform: scale3d(1.1, 1.1, 1.1);
+  z-index: 10;
 }
 
 .project-card {
