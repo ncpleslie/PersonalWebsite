@@ -113,6 +113,53 @@
     <div class="custom-card_technology">
       <p v-for="(aTech, index) in project.technology.split(',')" :key="index">{{ aTech }}</p>
     </div>
+
+    <!-- REFACTOR THIS CODE FOUND BELOW -->
+    <div class="custom-card_footer">
+      <button
+        v-if="project.projectUrl"
+        class="project-card-button"
+        :href="project.projectUrl"
+        v-b-tooltip.hover.left
+        title="See Project"
+        alt="See this program running"
+      >
+        <img src="../../../assets/screen.svg" alt="See this program running" />
+      </button>
+
+      <button
+        v-else
+        disabled
+        class="project-card-button disabled"
+        :href="project.projectUrl"
+        v-b-tooltip.hover.left
+        title="No Project Provide"
+        alt="No Project Provide"
+      >
+        <img src="../../../assets/screen.svg" alt="No Project Provide" />
+      </button>
+
+      <button
+        v-if="project.githubUrl"
+        class="project-card-button"
+        :href="project.githubUrl"
+        v-b-tooltip.hover.right
+        title="See Code"
+        alt="Go to the Github Repo"
+      >
+        <img src="../../../assets/github.svg" alt="Go to the Github Repo" />
+      </button>
+      <button
+        v-else
+        disabled
+        class="project-card-button disabled"
+        v-b-tooltip.hover.right
+        title="No Code Provided"
+        alt="No Code Provided"
+      >
+        <img src="../../../assets/github.svg" alt="No Code Provided" />
+      </button>
+    </div>
   </article>
 </template>
 
@@ -206,7 +253,7 @@ export default {
   flex-wrap: wrap;
   margin: auto;
   margin-bottom: 0;
-  padding: 0.5rem 0 1rem;
+  padding: 0.5rem 0 0.5rem;
   line-height: 2;
 }
 
@@ -223,17 +270,43 @@ export default {
   transition: 0.2s;
 }
 
-.custom-card_technology p:hover {
-  background: linear-gradient(90deg, var(--accent1), var(--accent2));
-  text-shadow: none;
-  box-decoration-break: clone;
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-box-decoration-break: clone;
-  background-clip: text;
-  border-color: white;
-  transform: scale3d(1.1, 1.1, 1.1);
-  z-index: 10;
+.custom-card_footer {
+  border-top: 1px solid rgba(92, 92, 92, 0.1);
+}
+
+.project-card-button {
+  border-radius: 0px;
+  border: 2px solid var(--accent1);
+  background-color: #27272f !important;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.project-card-button:hover {
+  border: 2px solid var(--accent2);
+  background-color: #33333d !important;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
+  -moz-box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
+  box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
+}
+
+.project-card-button.disabled {
+  cursor: default;
+  border: 2px solid grey;
+  background-color: #27272f !important;
+}
+
+.project-card-button.disabled:hover {
+  cursor: default;
+  border: 2px solid grey;
+  background-color: #27272f !important;
+}
+
+.project-card-button img {
+  filter: invert(100%);
 }
 
 .project-card {
@@ -246,10 +319,6 @@ export default {
 
 .card-body {
   padding: 0;
-}
-
-.project-card-footer {
-  min-height: 2.5rem;
 }
 
 .project-card-image {
@@ -289,39 +358,6 @@ export default {
 .project-card-tech {
   color: #fff;
   padding-bottom: 1rem;
-}
-
-.project-card-button {
-  border-radius: 0px;
-  border: 2px solid #045d56;
-  background-color: #27272f !important;
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-
-.project-card-button:hover {
-  border: 2px solid #1eb980;
-  background-color: #33333d !important;
-  cursor: pointer;
-  -webkit-box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
-  -moz-box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
-  box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
-}
-
-.project-card-button.disabled {
-  cursor: default;
-  border: 2px solid grey;
-  background-color: #27272f !important;
-}
-
-.project-card-button.disabled:hover {
-  cursor: default;
-  border: 2px solid grey;
-  background-color: #27272f !important;
-}
-
-.project-card-button img {
-  filter: invert(100%);
 }
 
 a:link {

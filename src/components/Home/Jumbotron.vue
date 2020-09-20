@@ -1,18 +1,41 @@
 <template>
   <div>
-    <b-jumbotron fluid>
-      <template class="jumbo_header" slot="header">{{header.name}}</template>
-      <template slot="lead">{{header.description}}</template>
-      <b-button class="project-card-button" href="#" v-scroll-to="'#projects'">See Projects</b-button>
-      <hr />
-      <div class="jumbotron-button-container">
+    <header class="jumbotron">
+      <h1
+        data-aos="fade-down"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in"
+        data-aos-once="true"
+      >{{header.name}}</h1>
+      <h2
+        data-aos="fade"
+        data-aos-duration="1500"
+        data-aos-easing="ease-in"
+        data-aos-once="true"
+      >{{header.description}}</h2>
+      <hr class="line" />
+      <button
+        class="jumbotron-button"
+        data-aos="fade"
+        data-aos-duration="1500"
+        data-aos-easing="ease-in"
+        data-aos-once="true"
+        href="#"
+        v-scroll-to="'#projects'"
+      >See Projects</button>
+      <div
+        class="jumbotron-button-container"
+        data-aos="fade"
+        data-aos-duration="2000"
+        data-aos-easing="ease-in"
+        data-aos-once="true"
+      >
         <Button :buttonType="'Github'" :links="header.links"></Button>
         <Button :buttonType="'LinkedIn'" :links="header.links"></Button>
         <Button :buttonType="'CV'" :links="header.links"></Button>
         <Button :buttonType="'Contact'" :links="header.links"></Button>
       </div>
-    </b-jumbotron>
-    <hr class="line" />
+    </header>
   </div>
 </template>
 
@@ -30,15 +53,15 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  width: unset;
-}
-
 .line {
-  border-top: 1px solid rgba(92, 92, 92, 0.1);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
 }
 
 .jumbotron {
+  display: flex;
+  flex-direction: column;
   color: #fff;
   background-color: var(--card);
   height: 100vh;
@@ -49,6 +72,7 @@ export default {
 }
 
 .jumbotron h1 {
+  font-size: 6rem;
   background: linear-gradient(90deg, var(--accent1), var(--accent2));
   text-shadow: none;
   background-clip: text;
@@ -56,8 +80,12 @@ export default {
   -webkit-text-fill-color: transparent;
 }
 
-.project-card-button {
+.jumbotron-button {
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  color: white;
   border-radius: 0px;
+  padding: 1rem 1.25rem 1rem 1.25rem;
   border: 2px solid var(--accent1);
   background-color: #27272f !important;
 }
@@ -69,17 +97,7 @@ export default {
   margin-left: -1rem;
 }
 
-.jumbotron-button-container .project-card-button {
-  border-radius: 0px;
-  border: 2px solid var(--accent1);
-  background-color: #27272f !important;
-  margin-left: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.project-card-button:hover {
+.jumbotron-button:hover {
   border: 2px solid var(--accent2);
   background-color: #33333d !important;
   cursor: pointer;
@@ -88,16 +106,12 @@ export default {
   box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
 }
 
-.project-card-button:active {
+.jumbotron-button:active {
   background-color: #27272f !important;
 }
 
-.project-card-button:focus {
+.jumbotron-button:focus {
   background-color: #27272f !important;
-}
-
-.project-card-button img {
-  filter: invert(100%);
 }
 
 /* Large format displays - MacBook 15inch, etc */
@@ -120,7 +134,7 @@ export default {
     font-size: 1000%;
   }
 
-  p {
+  h2 {
     font-size: 2rem;
   }
 }

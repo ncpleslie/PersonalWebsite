@@ -1,16 +1,12 @@
 <template>
-  <b-button
+  <button
     class="project-card-button animated"
-    data-aos="fade-up"
-    data-aos-duration="1000"
-    data-aos-easing="ease-in-out"
-    data-aos-once="true"
     :href="getBtnData.url"
     v-b-tooltip.hover.bottom
     :title="getBtnData.title"
   >
     <img :src="getBtnData.img_url" :alt="getBtnData.alt" />
-  </b-button>
+  </button>
 </template>
 
 <script>
@@ -60,8 +56,9 @@ export default {
 
 <style scoped>
 .project-card-button {
+  padding: 0.5rem 1rem 0.5rem 1rem;
   border-radius: 0px;
-  border: 2px solid #045d56;
+  border: 2px solid var(--accent1);
   background-color: #27272f !important;
   margin-left: 1rem;
   display: flex;
@@ -70,7 +67,7 @@ export default {
 }
 
 .project-card-button:hover {
-  border: 2px solid #1eb980;
+  border: 2px solid var(--accent2);
   background-color: #33333d !important;
   cursor: pointer;
   -webkit-box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
