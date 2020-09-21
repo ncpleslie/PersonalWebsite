@@ -85,20 +85,27 @@ h3 {
   border: 0;
 }
 
+#textarea-default {
+  margin-bottom: 2rem;
+}
+
 .contact-form-input:focus {
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.16), 0 0 0 2px var(--accent1);
 }
 
 .contact-form-input::placeholder {
   color: white;
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .contact-button {
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  color: white;
   border-radius: 0px;
+  padding: 1rem 1.25rem 1rem 1.25rem;
   border: 2px solid var(--accent1);
   background-color: #27272f !important;
-  margin-top: 2rem;
 }
 
 .contact-button:hover {

@@ -46,59 +46,18 @@
   </b-card-body>-->
 
   <!-- Project card footer and buttons to code/preview starts here -->
-  <!-- <div slot="footer" class="project-card-footer">
-      <b-button
-        v-if="project.projectUrl"
-        class="project-card-button"
-        :href="project.projectUrl"
-        v-b-tooltip.hover.left
-        title="See Project"
-        alt="See this program running"
-      >
-        <img src="../../../assets/screen.svg" alt="See this program running" />
-      </b-button>
-
-      <b-button
-        v-else
-        disabled
-        class="project-card-button disabled"
-        :href="project.projectUrl"
-        v-b-tooltip.hover.left
-        title="No Project Provide"
-        alt="No Project Provide"
-      >
-        <img src="../../../assets/screen.svg" alt="No Project Provide" />
-      </b-button>
-
-      <b-button
-        v-if="project.githubUrl"
-        class="project-card-button"
-        :href="project.githubUrl"
-        v-b-tooltip.hover.right
-        title="See Code"
-        alt="Go to the Github Repo"
-      >
-        <img src="../../../assets/github.svg" alt="Go to the Github Repo" />
-      </b-button>
-      <b-button
-        v-else
-        disabled
-        class="project-card-button disabled"
-        v-b-tooltip.hover.right
-        title="No Code Provided"
-        alt="No Code Provided"
-      >
-        <img src="../../../assets/github.svg" alt="No Code Provided" />
-      </b-button>
-    </div>
-  </b-card>-->
+  <!-- </b-card>-->
 
   <article class="custom-card">
     <header class="custom-card_header">
-      <h2>{{project.title}}</h2>
+      <a :href="getUrl()" alt="Go to project" :title="project.title">
+        <h2>{{project.title}}</h2>
+      </a>
     </header>
     <div class="custom-card_img">
-      <img v-if="isPicture()" :src="project.imageUrl" />
+      <a :href="getUrl()" alt="Go to project" :title="project.title">
+        <img :class="{'no-link': !getUrl()}" v-if="isPicture()" :src="project.imageUrl" />
+      </a>
       <b-embed
         v-if="isYoutube()"
         type="iframe"
@@ -114,11 +73,10 @@
       <p v-for="(aTech, index) in project.technology.split(',')" :key="index">{{ aTech }}</p>
     </div>
 
-    <!-- REFACTOR THIS CODE FOUND BELOW -->
     <div class="custom-card_footer">
       <button
-        v-if="project.projectUrl"
         class="project-card-button"
+        :class="{disabled : !project.projectUrl}"
         :href="project.projectUrl"
         v-b-tooltip.hover.left
         title="See Project"
@@ -128,36 +86,14 @@
       </button>
 
       <button
-        v-else
-        disabled
-        class="project-card-button disabled"
-        :href="project.projectUrl"
-        v-b-tooltip.hover.left
-        title="No Project Provide"
-        alt="No Project Provide"
-      >
-        <img src="../../../assets/screen.svg" alt="No Project Provide" />
-      </button>
-
-      <button
-        v-if="project.githubUrl"
         class="project-card-button"
+        :class="{disabled : !project.githubUrl}"
         :href="project.githubUrl"
         v-b-tooltip.hover.right
         title="See Code"
         alt="Go to the Github Repo"
       >
         <img src="../../../assets/github.svg" alt="Go to the Github Repo" />
-      </button>
-      <button
-        v-else
-        disabled
-        class="project-card-button disabled"
-        v-b-tooltip.hover.right
-        title="No Code Provided"
-        alt="No Code Provided"
-      >
-        <img src="../../../assets/github.svg" alt="No Code Provided" />
       </button>
     </div>
   </article>
@@ -180,6 +116,13 @@ export default {
       },
     };
   },
+  computed: {
+    hasProjectUrl() {
+      return {
+        disabled: !this.project.projectUrl ? true : false,
+      };
+    },
+  },
   methods: {
     isYoutube() {
       return this.project.imageUrl.match(/\.(youtube)/g) != null;
@@ -200,6 +143,10 @@ export default {
 </script>
 
 <style scoped>
+a {
+  text-decoration: none;
+}
+
 .custom-card {
   color: #d3d3d3;
   display: flex;
@@ -219,6 +166,7 @@ export default {
 }
 
 .custom-card_header h2 {
+  color: white;
   height: 5rem;
   cursor: pointer;
   transition: all 0.2s ease-in;
@@ -238,6 +186,14 @@ export default {
 
 .custom-card_img img {
   width: 100%;
+}
+
+.custom-card_img img:hover {
+  cursor: pointer;
+  outline-color: var(--accent1);
+  outline-style: outset;
+  outline-width: 2px;
+  filter: drop-shadow(0.1rem 0.1rem 0.5rem var(--accent2));
 }
 
 .custom-card_description {
@@ -307,73 +263,6 @@ export default {
 
 .project-card-button img {
   filter: invert(100%);
-}
-
-.project-card {
-  background-color: #33333d;
-  border-radius: 0px;
-  -webkit-box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
-  -moz-box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
-  box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
-}
-
-.card-body {
-  padding: 0;
-}
-
-.project-card-image {
-  border-radius: 0;
-  margin: 0;
-  width: 100%;
-}
-
-.project-card-image:hover {
-  cursor: pointer;
-  outline-color: #1eb980;
-  outline-style: outset;
-  outline-width: 2px;
-  filter: drop-shadow(0.1rem 0.1rem 0.5rem #045d56);
-}
-
-.no-link:hover {
-  cursor: unset;
-  border-top: unset;
-  border-left: unset;
-  border-right: unset;
-  filter: unset;
-}
-
-.project-card-title {
-  padding-top: 1rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  color: #fff;
-}
-
-.project-card-description {
-  color: #fff;
-  padding: 0rem 1rem 0 1rem;
-}
-
-.project-card-tech {
-  color: #fff;
-  padding-bottom: 1rem;
-}
-
-a:link {
-  color: #045d56;
-}
-
-a:visited {
-  color: #1eb980;
-}
-
-a:hover {
-  color: #045d56;
-}
-
-a:active {
-  color: #1eb980;
 }
 
 /* Large format displays - MacBook 15inch, etc */

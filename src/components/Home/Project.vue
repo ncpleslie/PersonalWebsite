@@ -3,7 +3,15 @@
     <h2>Projects</h2>
     <hr class="line" />
     <b-card-group class="project-card-group">
-      <ProjectCard v-for="(project, index) in projects" :key="index" :project="project"></ProjectCard>
+      <ProjectCard
+        data-aos="fade-up"
+        data-aos-duration="500"
+        data-aos-easing="ease-in-out"
+        data-aos-once="true"
+        v-for="(project, index) in projects"
+        :key="index"
+        :project="project"
+      ></ProjectCard>
     </b-card-group>
   </div>
 </template>

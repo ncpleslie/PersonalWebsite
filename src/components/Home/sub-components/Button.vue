@@ -1,6 +1,6 @@
 <template>
   <button
-    class="project-card-button animated"
+    class="project-card-button"
     :href="getBtnData.url"
     v-b-tooltip.hover.bottom
     :title="getBtnData.title"

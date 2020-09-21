@@ -65,7 +65,6 @@ export default {
   color: #fff;
   background-color: var(--card);
   height: 100vh;
-  margin-bottom: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
