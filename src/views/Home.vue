@@ -77,4 +77,25 @@ export default {
   margin-top: 0px;
   background-color: var(--background);
 }
+
+a:link {
+  color: var(--accent1);
+}
+
+a:visited {
+  color: var(--accent1);
+}
+
+a:hover {
+  color: var(--accent2);
+}
+
+a:active {
+  color: var(--accent2);
+}
+
+.line {
+  width: 60%;
+  border-top: 1px solid rgba(92, 92, 92, 0.1);
+}
 </style>

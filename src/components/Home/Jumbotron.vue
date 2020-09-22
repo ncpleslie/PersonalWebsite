@@ -14,15 +14,14 @@
         data-aos-once="true"
       >{{header.description}}</h2>
       <hr class="line" />
-      <button
+      <a
         class="jumbotron-button"
         data-aos="fade"
         data-aos-duration="1500"
         data-aos-easing="ease-in"
         data-aos-once="true"
-        href="#"
-        v-scroll-to="'#projects'"
-      >See Projects</button>
+        href="#projects"
+      >See Projects</a>
       <div
         class="jumbotron-button-container"
         data-aos="fade"
@@ -53,8 +52,11 @@ export default {
 </script>
 
 <style scoped>
+a {
+  text-decoration: none;
+}
+
 .line {
-  width: 60%;
   height: 1px;
   background: linear-gradient(90deg, var(--accent1), var(--accent2));
 }

@@ -22,20 +22,4 @@ h2 {
   color: white;
   font-size: 1rem;
 }
-
-a:link {
-  color: var(--accent1);
-}
-
-a:visited {
-  color: var(--accent1);
-}
-
-a:hover {
-  color: var(--accent2);
-}
-
-a:active {
-  color: var(--accent2);
-}
 </style>

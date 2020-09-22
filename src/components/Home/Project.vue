@@ -32,11 +32,6 @@ export default {
 </script>
 
 <style scoped>
-.line {
-  width: 60%;
-  border-top: 1px solid rgba(92, 92, 92, 0.1);
-}
-
 h2 {
   background: linear-gradient(90deg, var(--accent1), var(--accent2));
   text-shadow: none;

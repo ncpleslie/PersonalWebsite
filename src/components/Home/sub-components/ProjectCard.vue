@@ -1,53 +1,4 @@
 <template>
-  <!-- Project Cards start here -->
-  <!-- <b-card
-    data-aos="fade-up"
-    data-aos-duration="500"
-    data-aos-easing="ease-in-out"
-    data-aos-once="true"
-    class="mb-2 project-card"
-    footer-tag="footer"
-  >-->
-  <!-- Image section -->
-  <!-- <div v-if="isPicture()">
-      <a v-if="getUrl()" :href="getUrl()" alt="Go to project" :title="project.title">
-        <b-card-img-lazy
-          v-b-tooltip.hover
-          :src="project.imageUrl"
-          v-bind="mainProps"
-          :alt="project.title"
-          :title="project.title"
-        ></b-card-img-lazy>
-  </a>-->
-  <!-- If a project has no code or preview then remove all hover styling -->
-  <!-- <b-card-img-lazy
-        class="project-card-image no-link"
-        v-else-if="!getUrl()"
-        :src="project.imageUrl"
-        v-bind="mainProps"
-        :alt="project.title"
-        :title="project.title"
-      ></b-card-img-lazy>
-  </div>-->
-  <!-- Display youtube frame -->
-  <!-- <div v-if="isYoutube()">
-      <b-embed type="iframe" aspect="16by9" :src="project.imageUrl" allowfullscreen></b-embed>
-  </div>-->
-  <!-- Project card title starts here -->
-  <!-- <b-card-body>
-      <a :href="getUrl()" alt="Go to project">
-        <b-card-title class="project-card-title" :title="project.title"></b-card-title>
-      </a>
-  <hr />-->
-  <!-- Project card description starts here -->
-  <!-- <b-card-text class="project-card-description">{{ project.description }}</b-card-text> -->
-  <!-- Project card technology starts here -->
-  <!-- <b-card-text class="project-card-tech">{{ project.technology }}</b-card-text>
-  </b-card-body>-->
-
-  <!-- Project card footer and buttons to code/preview starts here -->
-  <!-- </b-card>-->
-
   <article class="custom-card">
     <header class="custom-card_header">
       <a :href="getUrl()" alt="Go to project" :title="project.title">
@@ -55,16 +6,27 @@
       </a>
     </header>
     <div class="custom-card_img">
-      <a :href="getUrl()" alt="Go to project" :title="project.title">
-        <img :class="{'no-link': !getUrl()}" v-if="isPicture()" :src="project.imageUrl" />
+      <a
+        :class="{'custom-card_img-link': getUrl()}"
+        :href="getUrl()"
+        alt="Go to project"
+        :title="project.title"
+      >
+        <img
+          loading="lazy"
+          :alt="project.title"
+          :title="project.title"
+          v-if="isPicture()"
+          :src="project.imageUrl"
+        />
       </a>
-      <b-embed
+      <iframe
+        class="custom-card_img"
         v-if="isYoutube()"
-        type="iframe"
-        aspect="16by9"
         :src="project.imageUrl"
+        :title="project.title"
         allowfullscreen
-      ></b-embed>
+      ></iframe>
     </div>
     <div class="custom-card_description">
       <p>{{ project.description }}</p>
@@ -74,8 +36,8 @@
     </div>
 
     <div class="custom-card_footer">
-      <button
-        class="project-card-button"
+      <a
+        class="custom-card_button"
         :class="{disabled : !project.projectUrl}"
         :href="project.projectUrl"
         v-b-tooltip.hover.left
@@ -83,10 +45,10 @@
         alt="See this program running"
       >
         <img src="../../../assets/screen.svg" alt="See this program running" />
-      </button>
+      </a>
 
-      <button
-        class="project-card-button"
+      <a
+        class="custom-card_button"
         :class="{disabled : !project.githubUrl}"
         :href="project.githubUrl"
         v-b-tooltip.hover.right
@@ -94,7 +56,7 @@
         alt="Go to the Github Repo"
       >
         <img src="../../../assets/github.svg" alt="Go to the Github Repo" />
-      </button>
+      </a>
     </div>
   </article>
 </template>
@@ -105,17 +67,7 @@ export default {
   props: {
     project: Object,
   },
-  data() {
-    return {
-      mainProps: {
-        title: "See Project",
-        class: "project-card-image",
-        "blank-width": 300,
-        "blank-height": 169,
-        "blank-color": "grey",
-      },
-    };
-  },
+
   computed: {
     hasProjectUrl() {
       return {
@@ -125,10 +77,10 @@ export default {
   },
   methods: {
     isYoutube() {
-      return this.project.imageUrl.match(/\.(youtube)/g) != null;
+      return this.project.imageUrl.match(/\.(youtube)/g);
     },
     isPicture() {
-      return this.project.imageUrl.match(/\.(jpeg|jpg|png|gif)/g) != null;
+      return this.project.imageUrl.match(/\.(jpeg|jpg|png|gif)/g);
     },
     getUrl() {
       if (this.project.projectUrl) return this.project.projectUrl;
@@ -161,7 +113,7 @@ a {
 }
 
 .custom-card:hover {
-  transform: scale3d(1.1, 1.1, 1.1);
+  transform: scale3d(1.05, 1.05, 1.05);
   z-index: 10;
 }
 
@@ -180,15 +132,22 @@ a {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 .custom-card_img {
   position: relative;
+}
+
+.custom-card_img iframe {
+  width: 100%;
+  height: 242px;
+  border: none;
 }
 
 .custom-card_img img {
   width: 100%;
 }
 
-.custom-card_img img:hover {
+.custom-card_img-link:hover {
   cursor: pointer;
   outline-color: var(--accent1);
   outline-style: outset;
@@ -227,92 +186,59 @@ a {
 }
 
 .custom-card_footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-top: 1px solid rgba(92, 92, 92, 0.1);
 }
 
-.project-card-button {
+.custom-card_button {
   border-radius: 0px;
   border: 2px solid var(--accent1);
-  background-color: #27272f !important;
+  background-color: var(--button) !important;
   margin-top: 1rem;
   margin-left: 1rem;
   margin-right: 1rem;
   padding: 0.5rem 0.75rem;
 }
 
-.project-card-button:hover {
+.custom-card_button:hover {
   border: 2px solid var(--accent2);
-  background-color: #33333d !important;
+  background-color: var(--button-accent) !important;
   cursor: pointer;
   -webkit-box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
   -moz-box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
   box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
 }
 
-.project-card-button.disabled {
+.custom-card_button.disabled {
   cursor: default;
   border: 2px solid grey;
-  background-color: #27272f !important;
+  background-color: var(--button) !important;
 }
 
-.project-card-button.disabled:hover {
-  cursor: default;
-  border: 2px solid grey;
-  background-color: #27272f !important;
-}
-
-.project-card-button img {
+.custom-card_button img {
   filter: invert(100%);
 }
 
 /* Large format displays - MacBook 15inch, etc */
 @media only screen and (min-width: 144rem) {
-  .project-card {
-    min-width: 25rem;
+  .custom-card {
+    min-width: 40rem;
     min-height: 35rem;
   }
 
-  .project-card-title {
-    font-size: 2rem;
+  .custom-card_header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
   }
 
-  .card-body {
-    padding: 0;
-    min-height: 32rem;
-  }
-
-  .project-card-description {
+  .custom-card_description {
     font-size: 1.5rem !important;
   }
-}
 
-/* Large format displays - MacBook 15inch, etc */
-@media only screen and (min-width: 180rem) {
-  .project-card {
-    min-width: 30rem;
-    min-height: 30rem;
-  }
-
-  .project-card-title {
-    font-size: 2.3rem;
-  }
-
-  .card-body {
-    padding: 0;
-    min-height: 35rem;
-  }
-
-  .project-card-description {
-    font-size: 1.5rem !important;
-    height: 0rem;
-  }
-
-  .project-card-button {
-    border-radius: 0px;
-    border: 2px solid #045d56;
-    background-color: #27272f !important;
-    margin-left: 1rem;
-    margin-right: 1rem;
+  .custom-card_technology p {
+    font-size: 1rem;
   }
 }
 </style>
