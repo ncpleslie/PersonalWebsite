@@ -2,7 +2,7 @@
   <div class="projects">
     <h2>Projects</h2>
     <hr class="line" />
-    <b-card-group class="project-card-group">
+    <div class="project-card-group">
       <ProjectCard
         data-aos="fade-up"
         data-aos-duration="500"
@@ -12,7 +12,7 @@
         :key="index"
         :project="project"
       ></ProjectCard>
-    </b-card-group>
+    </div>
   </div>
 </template>
 

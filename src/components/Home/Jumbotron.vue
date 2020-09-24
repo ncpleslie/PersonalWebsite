@@ -1,34 +1,11 @@
 <template>
   <div>
     <header class="jumbotron">
-      <h1
-        data-aos="fade-down"
-        data-aos-duration="1000"
-        data-aos-easing="ease-in"
-        data-aos-once="true"
-      >{{header.name}}</h1>
-      <h2
-        data-aos="fade"
-        data-aos-duration="1500"
-        data-aos-easing="ease-in"
-        data-aos-once="true"
-      >{{header.description}}</h2>
+      <h1>{{header.name}}</h1>
+      <h2>{{header.description}}</h2>
       <hr class="line" />
-      <a
-        class="jumbotron-button"
-        data-aos="fade"
-        data-aos-duration="1500"
-        data-aos-easing="ease-in"
-        data-aos-once="true"
-        href="#projects"
-      >See Projects</a>
-      <div
-        class="jumbotron-button-container"
-        data-aos="fade"
-        data-aos-duration="2000"
-        data-aos-easing="ease-in"
-        data-aos-once="true"
-      >
+      <a class="jumbotron-button" href="#projects">See Projects</a>
+      <div class="jumbotron-button-container">
         <Button :buttonType="'Github'" :links="header.links"></Button>
         <Button :buttonType="'LinkedIn'" :links="header.links"></Button>
         <Button :buttonType="'CV'" :links="header.links"></Button>
@@ -62,6 +39,7 @@ a {
 }
 
 .jumbotron {
+  font-family: var(--font-family-monospace);
   display: flex;
   flex-direction: column;
   color: #fff;
@@ -79,9 +57,15 @@ a {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: fadein 2s;
+}
+
+.jumbotron h2 {
+  animation: fade 1.5s;
 }
 
 .jumbotron-button {
+  font-family: var(--font-family-sans-serif);
   margin-top: 0.5rem;
   margin-bottom: 1.5rem;
   color: white;
@@ -89,6 +73,7 @@ a {
   padding: 1rem 1.25rem 1rem 1.25rem;
   border: 2px solid var(--accent1);
   background-color: #27272f !important;
+  animation: fade 1.5s;
 }
 
 .jumbotron-button-container {
@@ -96,6 +81,7 @@ a {
   justify-content: center;
   align-items: center;
   margin-left: -1rem;
+  animation: fade 2s;
 }
 
 .jumbotron-button:hover {
@@ -113,6 +99,26 @@ a {
 
 .jumbotron-button:focus {
   background-color: #27272f !important;
+}
+
+@keyframes fadein {
+  from {
+    -webkit-transform: translate3d(0, -100px, 0);
+    transform: translate3d(0, -100px, 0);
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Large format displays - MacBook 15inch, etc */

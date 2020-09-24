@@ -9,11 +9,13 @@
 import Login from "../components/Admin/LoginForm";
 import * as firebase from "firebase/app";
 import "firebase/auth";
+import { BAlert } from "bootstrap-vue";
 
 export default {
   name: "Admin",
   components: {
     Login,
+    BAlert,
   },
   data() {
     return {

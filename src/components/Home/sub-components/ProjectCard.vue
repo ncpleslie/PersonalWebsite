@@ -13,6 +13,8 @@
         :title="project.title"
       >
         <img
+          width="320"
+          height="180"
           loading="lazy"
           :alt="project.title"
           :title="project.title"
@@ -21,6 +23,8 @@
         />
       </a>
       <iframe
+        width="320"
+        height="180"
         class="custom-card_img"
         v-if="isYoutube()"
         :src="project.imageUrl"
@@ -118,6 +122,10 @@ a {
 }
 
 .custom-card_header h2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: -1.5rem;
   color: white;
   height: 5rem;
   cursor: pointer;
@@ -133,10 +141,6 @@ a {
   -webkit-text-fill-color: transparent;
 }
 
-.custom-card_img {
-  position: relative;
-}
-
 .custom-card_img iframe {
   width: 100%;
   height: 242px;
@@ -145,6 +149,7 @@ a {
 
 .custom-card_img img {
   width: 100%;
+  height: auto;
 }
 
 .custom-card_img-link:hover {

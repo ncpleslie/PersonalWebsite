@@ -120,8 +120,17 @@ import * as firebase from "firebase/app";
 import "firebase/database";
 import "firebase/storage";
 import "firebase/auth";
+import {
+  BCard,
+  BTabs,
+  BTab,
+  BForm,
+  BFormInput as BInput,
+  BFormFile,
+} from "bootstrap-vue";
 
 export default {
+  components: { BCard, BTabs, BTab, BForm, BInput, BFormFile },
   data() {
     return {
       header: null,
