@@ -1,18 +1,19 @@
 <template>
-  <b-form @submit.stop.prevent class="login-form">
+  <form @submit.stop.prevent class="login-form">
     <label class="input-form-label" for="feedback-user">Email</label>
-    <b-input class="login-form-input" v-model="userData.email" id="feedback-user"></b-input>
+    <input class="login-form-input" v-model="userData.email" id="feedback-user" placeholder="email" />
 
     <label class="input-form-label" for="text-password">Password</label>
-    <b-input
+    <input
       class="login-form-input"
       type="password"
       id="text-password"
+      placeholder="password"
       aria-describedby="password-help-block"
       v-model="userData.password"
-    ></b-input>
-    <b-button type="submit" variant="primary" @click="onSubmit">Login</b-button>
-  </b-form>
+    />
+    <button type="submit" variant="primary" @click="onSubmit">Login</button>
+  </form>
 </template>
 
 <script>
@@ -37,6 +38,8 @@ export default {
 
 <style scoped>
 .login-form {
+  display: flex;
+  flex-direction: column;
   padding-top: 1rem;
   padding-bottom: 1rem;
   min-width: 30%;

@@ -7,67 +7,60 @@
     </h3>
     <hr class="line" />
 
-    <b-form class="contact-form" v-bind:action="this.contact.formSpringUrl" method="POST">
-      <b-form-group id="input-group-1" label="Email address:" label-for="input-1">
-        <b-form-input
-          name="_replyto"
-          class="contact-form-input"
-          id="input-1"
-          type="email"
-          required
-          placeholder="Your email here"
-          alt="Your Email"
-        ></b-form-input>
-      </b-form-group>
-      <b-form-group id="input-group-2" label="Your Name:" label-for="input-2">
-        <b-form-input
-          name="name"
-          class="contact-form-input"
-          id="input-2"
-          required
-          placeholder="Name"
-          alt="Your Name"
-        ></b-form-input>
-      </b-form-group>
-      <b-form-group label="Your Message:" label-for="textarea-default">
-        <b-form-textarea
-          name="message"
-          class="contact-form-input"
-          id="textarea-default"
-          placeholder="What would you like to say?"
-          alt="Your Message"
-        ></b-form-textarea>
-      </b-form-group>
-      <b-button class="contact-button" type="submit" variant="primary">Submit</b-button>
-    </b-form>
+    <form class="contact-form" v-bind:action="this.contact.formSpringUrl" method="POST">
+      <input
+        name="_replyto"
+        class="contact-form_input"
+        id="input-1"
+        type="email"
+        required
+        placeholder="Your email here"
+        alt="Your Email"
+      />
+      <input
+        name="name"
+        class="contact-form_input"
+        id="input-2"
+        required
+        placeholder="Name"
+        alt="Your Name"
+      />
+
+      <textarea
+        name="message"
+        class="contact-form_input"
+        id="textarea-default"
+        placeholder="What would you like to say?"
+        alt="Your Message"
+      ></textarea>
+      <button class="contact-button" type="submit" variant="primary">Submit</button>
+    </form>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    contact: Object
+    contact: Object,
   },
   methods: {
     onSubmit(evt) {
       evt.preventDefault();
       alert(JSON.stringify(this.form));
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style scoped>
-.line {
-  width: 60%;
-}
-
 .contact {
   margin-top: 2rem;
   padding-bottom: 2rem;
   padding-top: 1rem;
   color: white;
-  background-color: #33333d;
+  background-color: var(--card);
+  display: flex;
+  flex-direction: column;
 }
 
 .contact-form {
@@ -79,31 +72,42 @@ h3 {
   font-size: 1rem;
 }
 
-.contact-form-input {
+.contact-form_group {
+  margin: 2rem 0;
+}
+
+.contact-form_input {
   background-color: #27272f;
   color: white;
   border: 0;
+  width: 100%;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 0.25rem;
 }
 
-.contact-form-input:focus {
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.16), 0 0 0 2px #045d56;
+.contact-form_input:focus {
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.16), 0 0 0 2px var(--accent1);
 }
 
-.contact-form-input::placeholder {
+.contact-form_input::placeholder {
   color: white;
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .contact-button {
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  color: white;
   border-radius: 0px;
-  border: 2px solid #045d56;
-  background-color: #27272f !important;
-  margin-top: 2rem;
+  padding: 1rem 1.25rem 1rem 1.25rem;
+  border: 2px solid var(--accent1);
+  background-color: var(--button) !important;
 }
 
 .contact-button:hover {
-  border: 2px solid #1eb980;
-  background-color: #33333d !important;
+  border: 2px solid var(--accent2);
+  background-color: var(--button-accent) !important;
   cursor: pointer;
   -webkit-box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
   -moz-box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
@@ -112,24 +116,8 @@ h3 {
 
 .contact-button:active,
 .contact-button:focus {
-  border: 2px solid #045d56;
+  border: 2px solid var(--accent2);
   background-color: #27272f !important;
-}
-
-a:link {
-  color: #1eb980;
-}
-
-a:visited {
-  color: #1eb980;
-}
-
-a:hover {
-  color: #045d56;
-}
-
-a:active {
-  color: #1eb980;
 }
 </style>
 

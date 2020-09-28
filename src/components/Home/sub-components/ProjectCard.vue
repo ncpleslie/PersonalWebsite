@@ -1,97 +1,70 @@
 <template>
-  <!-- Project Cards start here -->
-  <b-card
-    data-aos="fade-up"
-    data-aos-duration="500"
-    data-aos-easing="ease-in-out"
-    data-aos-once="true"
-    class="mb-2 project-card"
-    footer-tag="footer"
-  >
-    <!-- Image section -->
-    <div v-if="isPicture()">
-      <a v-if="getUrl()" :href="getUrl()" alt="Go to project" :title="project.title">
-        <b-card-img-lazy
-          v-b-tooltip.hover
-          :src="project.imageUrl"
-          v-bind="mainProps"
+  <article class="custom-card">
+    <header class="custom-card_header">
+      <a :href="getUrl()" alt="Go to project" :title="project.title">
+        <h2>{{ project.title }}</h2>
+      </a>
+    </header>
+    <div class="custom-card_img">
+      <a
+        :class="{ 'custom-card_img-link': getUrl() }"
+        :href="getUrl()"
+        alt="Go to project"
+        :title="project.title"
+      >
+        <img
+          width="320"
+          height="180"
+          loading="lazy"
           :alt="project.title"
           :title="project.title"
-        ></b-card-img-lazy>
+          v-if="isPicture()"
+          :src="project.imageUrl"
+        />
       </a>
-      <!-- If a project has no code or preview then remove all hover styling -->
-      <b-card-img-lazy
-        class="project-card-image no-link"
-        v-else-if="!getUrl()"
+      <iframe
+        width="320"
+        height="180"
+        class="custom-card_img"
+        v-if="isYoutube()"
         :src="project.imageUrl"
-        v-bind="mainProps"
-        :alt="project.title"
         :title="project.title"
-      ></b-card-img-lazy>
+        allowfullscreen
+      ></iframe>
     </div>
-    <!-- Display youtube frame -->
-    <div v-if="isYoutube()">
-      <b-embed type="iframe" aspect="16by9" :src="project.imageUrl" allowfullscreen></b-embed>
+    <div class="custom-card_description">
+      <p>{{ project.description }}</p>
     </div>
-    <!-- Project card title starts here -->
-    <b-card-body>
-      <a :href="getUrl()" alt="Go to project">
-        <b-card-title class="project-card-title" :title="project.title"></b-card-title>
-      </a>
-      <hr />
-      <!-- Project card description starts here -->
-      <b-card-text class="project-card-description">{{ project.description }}</b-card-text>
-      <!-- Project card technology starts here -->
-      <b-card-text class="project-card-tech">{{ project.technology }}</b-card-text>
-    </b-card-body>
+    <div class="custom-card_technology">
+      <p v-for="(aTech, index) in project.technology.split(',')" :key="index">
+        {{ aTech }}
+      </p>
+    </div>
 
-    <!-- Project card footer and buttons to code/preview starts here -->
-    <div slot="footer" class="project-card-footer">
-      <b-button
-        v-if="project.projectUrl"
-        class="project-card-button"
+    <div class="custom-card_footer">
+      <a
+        class="custom-card_button"
+        :class="{ disabled: !project.projectUrl }"
         :href="project.projectUrl"
         v-b-tooltip.hover.left
         title="See Project"
         alt="See this program running"
       >
         <img src="../../../assets/screen.svg" alt="See this program running" />
-      </b-button>
+      </a>
 
-      <b-button
-        v-else
-        disabled
-        class="project-card-button disabled"
-        :href="project.projectUrl"
-        v-b-tooltip.hover.left
-        title="No Project Provide"
-        alt="No Project Provide"
-      >
-        <img src="../../../assets/screen.svg" alt="No Project Provide" />
-      </b-button>
-
-      <b-button
-        v-if="project.githubUrl"
-        class="project-card-button"
+      <a
+        class="custom-card_button"
+        :class="{ disabled: !project.githubUrl }"
         :href="project.githubUrl"
         v-b-tooltip.hover.right
         title="See Code"
         alt="Go to the Github Repo"
       >
         <img src="../../../assets/github.svg" alt="Go to the Github Repo" />
-      </b-button>
-      <b-button
-        v-else
-        disabled
-        class="project-card-button disabled"
-        v-b-tooltip.hover.right
-        title="No Code Provided"
-        alt="No Code Provided"
-      >
-        <img src="../../../assets/github.svg" alt="No Code Provided" />
-      </b-button>
+      </a>
     </div>
-  </b-card>
+  </article>
 </template>
 
 <script>
@@ -100,23 +73,20 @@ export default {
   props: {
     project: Object,
   },
-  data() {
-    return {
-      mainProps: {
-        title: "See Project",
-        class: "project-card-image",
-        "blank-width": 300,
-        "blank-height": 169,
-        "blank-color": "grey",
-      },
-    };
+
+  computed: {
+    hasProjectUrl() {
+      return {
+        disabled: !this.project.projectUrl ? true : false,
+      };
+    },
   },
   methods: {
     isYoutube() {
-      return this.project.imageUrl.match(/\.(youtube)/g) != null;
+      return this.project.imageUrl.match(/\.(youtube)/g);
     },
     isPicture() {
-      return this.project.imageUrl.match(/\.(jpeg|jpg|png|gif)/g) != null;
+      return this.project.imageUrl.match(/\.(jpeg|jpg|png|gif)/g);
     },
     getUrl() {
       if (this.project.projectUrl) return this.project.projectUrl;
@@ -131,158 +101,151 @@ export default {
 </script>
 
 <style scoped>
-.project-card {
-  background-color: #33333d;
-  border-radius: 0px;
-  -webkit-box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
-  -moz-box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
-  box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
+a {
+  text-decoration: none;
 }
 
-.card-body {
-  padding: 0;
+.custom-card {
+  color: #d3d3d3;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 400px;
+  padding: 1.5rem;
+  border-radius: 0.25rem;
+  background: var(--card);
+  box-shadow: 0 0.5rem 3rem 0.5rem rgba(0, 0, 0, 0.87);
+  transition: all 0.2s ease-in-out;
 }
 
-.project-card-footer {
-  min-height: 2.5rem;
+.custom-card:hover {
+  transform: scale3d(1.05, 1.05, 1.05);
+  z-index: 10;
 }
 
-.project-card-image {
-  border-radius: 0;
-  margin: 0;
-  width: 100%;
-}
-
-.project-card-image:hover {
+.custom-card_header h2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: -1.5rem;
+  color: white;
+  height: 7rem;
   cursor: pointer;
-  outline-color: #1eb980;
+  transition: all 0.2s ease-in;
+  border-bottom: 1px solid rgba(92, 92, 92, 0.1);
+}
+
+.custom-card_header h2:hover {
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  text-shadow: none;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.custom-card_img iframe {
+  width: 100%;
+  height: 242px;
+  border: none;
+}
+
+.custom-card_img img {
+  width: 100%;
+  height: auto;
+}
+
+.custom-card_img-link:hover {
+  cursor: pointer;
+  outline-color: var(--accent1);
   outline-style: outset;
   outline-width: 2px;
-  filter: drop-shadow(0.1rem 0.1rem 0.5rem #045d56);
+  filter: drop-shadow(0.1rem 0.1rem 0.5rem var(--accent2));
 }
 
-.no-link:hover {
-  cursor: unset;
-  border-top: unset;
-  border-left: unset;
-  border-right: unset;
-  filter: unset;
+.custom-card_description {
+  height: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(92, 92, 92, 0.1);
 }
 
-.project-card-title {
-  padding-top: 1rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  color: #fff;
+.custom-card_technology {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: auto;
+  margin-bottom: 0;
+  padding: 0.5rem 0 0.5rem;
+  line-height: 2;
 }
 
-.project-card-description {
-  color: #fff;
-  padding: 0rem 1rem 0 1rem;
+.custom-card_technology p {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.5rem;
+  color: #b5b5bd;
+  text-transform: uppercase;
+  font-size: 0.66rem;
+  border: 3px solid #28242f;
+  padding: 0.2rem 0.85rem 0.25rem;
+  position: relative;
+  transition: 0.2s;
 }
 
-.project-card-tech {
-  color: #fff;
-  padding-bottom: 1rem;
+.custom-card_footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid rgba(92, 92, 92, 0.1);
 }
 
-.project-card-button {
+.custom-card_button {
   border-radius: 0px;
-  border: 2px solid #045d56;
-  background-color: #27272f !important;
+  border: 2px solid var(--accent1);
+  background-color: var(--button) !important;
+  margin-top: 1rem;
   margin-left: 1rem;
   margin-right: 1rem;
+  padding: 0.5rem 0.75rem;
 }
 
-.project-card-button:hover {
-  border: 2px solid #1eb980;
-  background-color: #33333d !important;
+.custom-card_button:hover {
+  border: 2px solid var(--accent2);
+  background-color: var(--button-accent) !important;
   cursor: pointer;
   -webkit-box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
   -moz-box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
   box-shadow: 0px 6px 5px 3px rgba(20, 20, 20, 0.2);
 }
 
-.project-card-button.disabled {
+.custom-card_button.disabled {
   cursor: default;
   border: 2px solid grey;
-  background-color: #27272f !important;
+  background-color: var(--button) !important;
 }
 
-.project-card-button.disabled:hover {
-  cursor: default;
-  border: 2px solid grey;
-  background-color: #27272f !important;
-}
-
-.project-card-button img {
+.custom-card_button img {
   filter: invert(100%);
-}
-
-a:link {
-  color: #045d56;
-}
-
-a:visited {
-  color: #1eb980;
-}
-
-a:hover {
-  color: #045d56;
-}
-
-a:active {
-  color: #1eb980;
 }
 
 /* Large format displays - MacBook 15inch, etc */
 @media only screen and (min-width: 144rem) {
-  .project-card {
-    min-width: 25rem;
+  .custom-card {
+    min-width: 40rem;
     min-height: 35rem;
   }
 
-  .project-card-title {
-    font-size: 2rem;
+  .custom-card_header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
   }
 
-  .card-body {
-    padding: 0;
-    min-height: 32rem;
-  }
-
-  .project-card-description {
+  .custom-card_description {
     font-size: 1.5rem !important;
   }
-}
 
-/* Large format displays - MacBook 15inch, etc */
-@media only screen and (min-width: 180rem) {
-  .project-card {
-    min-width: 30rem;
-    min-height: 30rem;
-  }
-
-  .project-card-title {
-    font-size: 2.3rem;
-  }
-
-  .card-body {
-    padding: 0;
-    min-height: 35rem;
-  }
-
-  .project-card-description {
-    font-size: 1.5rem !important;
-    height: 0rem;
-  }
-
-  .project-card-button {
-    border-radius: 0px;
-    border: 2px solid #045d56;
-    background-color: #27272f !important;
-    margin-left: 1rem;
-    margin-right: 1rem;
+  .custom-card_technology p {
+    font-size: 1rem;
   }
 }
 </style>

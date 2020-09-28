@@ -2,9 +2,17 @@
   <div class="projects">
     <h2>Projects</h2>
     <hr class="line" />
-    <b-card-group class="project-card-group">
-      <ProjectCard v-for="(project, index) in projects" :key="index" :project="project"></ProjectCard>
-    </b-card-group>
+    <div class="project-card-group">
+      <ProjectCard
+        data-aos="fade-up"
+        data-aos-duration="500"
+        data-aos-easing="ease-in-out"
+        data-aos-once="true"
+        v-for="(project, index) in projects"
+        :key="index"
+        :project="project"
+      ></ProjectCard>
+    </div>
   </div>
 </template>
 
@@ -24,12 +32,12 @@ export default {
 </script>
 
 <style scoped>
-.line {
-  width: 60%;
-}
-
 h2 {
-  color: white;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  text-shadow: none;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 3rem;
   margin-top: 2rem;
 }
@@ -40,8 +48,8 @@ h2 {
   justify-content: center;
 }
 
-.project-card-group > .card {
-  margin: 2rem;
+.project-card-group > .custom-card {
+  margin: 1rem;
   flex: 0 1 95%;
   max-width: 30rem;
 }

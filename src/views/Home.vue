@@ -11,16 +11,16 @@
 </template>
 
 <script>
-import Project from "./components/Home/Project";
-import Jumbotron from "./components/Home/Jumbotron";
-import ContactForm from "./components/Home/ContactForm";
-import Footer from "./components/Home/Footer";
-import Loading from "./components/Home/Loading";
+import Project from "../components/Home/Project";
+import Jumbotron from "../components/Home/Jumbotron";
+import ContactForm from "../components/Home/ContactForm";
+import Footer from "../components/Home/Footer";
+import Loading from "../components/Home/Loading";
 
 import * as firebase from "firebase/app";
 import "firebase/database";
 
-import personalInfo from "../public/personal_info.json";
+import personalInfo from "../../public/personal_info.json";
 
 export default {
   name: "Home",
@@ -68,13 +68,38 @@ export default {
 </script>
 
 <style>
+html {
+  scroll-behavior: smooth;
+}
+
 #home {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 0px;
-  background-color: #27272f;
+  background-color: var(--background);
+}
+
+a:link {
+  color: var(--accent1);
+}
+
+a:visited {
+  color: var(--accent1);
+}
+
+a:hover {
+  color: var(--accent2);
+}
+
+a:active {
+  color: var(--accent2);
+}
+
+.line {
+  width: 60%;
+  border-top: 1px solid rgba(92, 92, 92, 0.1);
 }
 </style>

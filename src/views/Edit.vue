@@ -41,7 +41,7 @@
               accept=".jpg, .png, .gif, .webp, .jpeg"
             ></b-form-file>
 
-            <b-button type="submit" variant="primary" @click="addNewProject">Add</b-button>
+            <button type="submit" variant="primary" @click="addNewProject">Add</button>
           </b-form>
         </b-tab>
         <b-tab title="Current Projects">
@@ -81,7 +81,7 @@
                 accept=".jpg, .png, .gif, .webp, .jpeg"
               ></b-form-file>
 
-              <b-button type="submit" variant="primary" @click="onSubmit('projects', index)">Update</b-button>
+              <button type="submit" variant="primary" @click="onSubmit('projects', index)">Update</button>
             </b-form>
           </div>
         </b-tab>
@@ -97,7 +97,7 @@
             <b-input class="edit-form-input" v-model="header.links.CV"></b-input>
             <b-input class="edit-form-input" v-model="header.links.github"></b-input>
             <b-input class="edit-form-input" v-model="header.links.linkedIn"></b-input>
-            <b-button type="submit" variant="primary" @click="onSubmit('header')">Update</b-button>
+            <button type="submit" variant="primary" @click="onSubmit('header')">Update</button>
           </b-form>
 
           <b-form v-if="contact" @submit.stop.prevent class="edit-form">
@@ -106,12 +106,12 @@
             <b-input class="edit-form-input" v-model="contact.email"></b-input>
             <b-input class="edit-form-input" v-model="contact.formSpringUrl"></b-input>
 
-            <b-button type="submit" variant="primary" @click="onSubmit('contact')">Update</b-button>
+            <button type="submit" variant="primary" @click="onSubmit('contact')">Update</button>
           </b-form>
         </b-tab>
       </b-tabs>
     </b-card>
-    <b-button variant="primary" @click="onSave">Backup Database To File</b-button>
+    <button variant="primary" @click="onSave">Backup Database To File</button>
   </div>
 </template>
 
@@ -120,8 +120,17 @@ import * as firebase from "firebase/app";
 import "firebase/database";
 import "firebase/storage";
 import "firebase/auth";
+import {
+  BCard,
+  BTabs,
+  BTab,
+  BForm,
+  BFormInput as BInput,
+  BFormFile,
+} from "bootstrap-vue";
 
 export default {
+  components: { BCard, BTabs, BTab, BForm, BInput, BFormFile },
   data() {
     return {
       header: null,

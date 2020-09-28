@@ -22,20 +22,4 @@ h2 {
   color: white;
   font-size: 1rem;
 }
-
-a:link {
-  color: #1eb980;
-}
-
-a:visited {
-  color: #1eb980;
-}
-
-a:hover {
-  color: #045d56;
-}
-
-a:active {
-  color: #1eb980;
-}
 </style>
