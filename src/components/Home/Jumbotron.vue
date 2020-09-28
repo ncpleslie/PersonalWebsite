@@ -1,8 +1,8 @@
 <template>
   <div>
     <header class="jumbotron">
-      <h1>{{header.name}}</h1>
-      <h2>{{header.description}}</h2>
+      <h1>{{ header.name }}</h1>
+      <h2>{{ header.description }}</h2>
       <hr class="line" />
       <a class="jumbotron-button" href="#projects">See Projects</a>
       <div class="jumbotron-button-container">
@@ -118,6 +118,12 @@ a {
   }
   to {
     opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 40rem) {
+  .jumbotron h2 {
+    font-size: 1.5rem;
   }
 }
 
