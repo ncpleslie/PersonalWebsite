@@ -68,6 +68,10 @@ export default {
 </script>
 
 <style>
+html {
+  scroll-behavior: smooth;
+}
+
 #home {
   font-family: "Avenir", Helvetica, Arial, sans-serif !important;
   -webkit-font-smoothing: antialiased;

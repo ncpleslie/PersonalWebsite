@@ -2,12 +2,12 @@
   <article class="custom-card">
     <header class="custom-card_header">
       <a :href="getUrl()" alt="Go to project" :title="project.title">
-        <h2>{{project.title}}</h2>
+        <h2>{{ project.title }}</h2>
       </a>
     </header>
     <div class="custom-card_img">
       <a
-        :class="{'custom-card_img-link': getUrl()}"
+        :class="{ 'custom-card_img-link': getUrl() }"
         :href="getUrl()"
         alt="Go to project"
         :title="project.title"
@@ -36,13 +36,15 @@
       <p>{{ project.description }}</p>
     </div>
     <div class="custom-card_technology">
-      <p v-for="(aTech, index) in project.technology.split(',')" :key="index">{{ aTech }}</p>
+      <p v-for="(aTech, index) in project.technology.split(',')" :key="index">
+        {{ aTech }}
+      </p>
     </div>
 
     <div class="custom-card_footer">
       <a
         class="custom-card_button"
-        :class="{disabled : !project.projectUrl}"
+        :class="{ disabled: !project.projectUrl }"
         :href="project.projectUrl"
         v-b-tooltip.hover.left
         title="See Project"
@@ -53,7 +55,7 @@
 
       <a
         class="custom-card_button"
-        :class="{disabled : !project.githubUrl}"
+        :class="{ disabled: !project.githubUrl }"
         :href="project.githubUrl"
         v-b-tooltip.hover.right
         title="See Code"
@@ -127,7 +129,7 @@ a {
   justify-content: center;
   margin-top: -1.5rem;
   color: white;
-  height: 5rem;
+  height: 7rem;
   cursor: pointer;
   transition: all 0.2s ease-in;
   border-bottom: 1px solid rgba(92, 92, 92, 0.1);
