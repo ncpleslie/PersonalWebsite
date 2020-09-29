@@ -43,9 +43,7 @@
         placeholder=" "
       ></textarea>
       <label class="contact-form_input-label" for="message"
-        ><span class="contact-form_input-label-span"
-          >What would you like to say?</span
-        ></label
+        ><span class="contact-form_input-label-span">Your Message</span></label
       >
 
       <button class="contact-button" type="submit" variant="primary">
@@ -146,11 +144,17 @@ h3 {
   opacity: 0.7;
 }
 
-.contact-form_input:focus + .contact-form_input-label,
+.contact-form_input:focus-within + .contact-form_input-label,
 .contact-form_input:not(:placeholder-shown) + .contact-form_input-label {
   transform: translateY(-2.7rem);
   color: white;
   opacity: 1;
+}
+
+@media only screen and (max-width: 44rem) {
+  .contact-form {
+    width: 90%;
+  }
 }
 </style>
 

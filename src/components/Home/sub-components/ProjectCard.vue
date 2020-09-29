@@ -2,7 +2,7 @@
   <article class="custom-card">
     <header class="custom-card_header">
       <a :href="getUrl()" alt="Go to project" :title="project.title">
-        <h2>{{ project.title }}</h2>
+        <h3>{{ project.title }}</h3>
       </a>
     </header>
     <div class="custom-card_img">
@@ -110,7 +110,7 @@ a {
   display: flex;
   position: relative;
   flex-direction: column;
-  width: 400px;
+  max-width: 400px;
   padding: 1.5rem;
   border-radius: 0.25rem;
   background: var(--card);
@@ -123,11 +123,11 @@ a {
   z-index: 10;
 }
 
-.custom-card_header h2 {
+.custom-card_header h3 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: -1.5rem;
+  margin: -1.5rem 0 0 0;
   color: white;
   height: 7rem;
   cursor: pointer;
@@ -135,7 +135,7 @@ a {
   border-bottom: 1px solid rgba(92, 92, 92, 0.1);
 }
 
-.custom-card_header h2:hover {
+.custom-card_header h3:hover {
   background: linear-gradient(90deg, var(--accent1), var(--accent2));
   text-shadow: none;
   background-clip: text;
@@ -163,9 +163,9 @@ a {
 }
 
 .custom-card_description {
-  height: 100%;
-  padding: 1rem;
-  margin-bottom: 1rem;
+  height: 30%;
+  padding-top: 1rem;
+
   border-bottom: 1px solid rgba(92, 92, 92, 0.1);
 }
 
@@ -173,9 +173,7 @@ a {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  margin: auto;
-  margin-bottom: 0;
-  padding: 0.5rem 0 0.5rem;
+  margin: 1rem auto;
   line-height: 2;
 }
 
@@ -190,6 +188,7 @@ a {
   padding: 0.2rem 0.85rem 0.25rem;
   position: relative;
   transition: 0.2s;
+  margin: 0;
 }
 
 .custom-card_footer {
@@ -203,9 +202,7 @@ a {
   border-radius: 0px;
   border: 2px solid var(--accent1);
   background-color: var(--button) !important;
-  margin-top: 1rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin: 1rem 1rem 0 1rem;
   padding: 0.5rem 0.75rem;
 }
 
@@ -235,7 +232,7 @@ a {
     min-height: 35rem;
   }
 
-  .custom-card_header h2 {
+  .custom-card_header h3 {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
   }
