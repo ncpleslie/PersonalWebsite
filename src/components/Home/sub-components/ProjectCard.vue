@@ -15,7 +15,6 @@
         <img
           width="320"
           height="180"
-          loading="lazy"
           :alt="project.title"
           :title="project.title"
           v-if="isPicture()"

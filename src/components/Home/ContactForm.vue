@@ -21,7 +21,7 @@
         alt="Your Email"
         placeholder=" "
       />
-      <label class="contact-form_input-label" for="_replyto"
+      <label class="contact-form_input-label" for="input-1"
         ><span class="contact-form_input-label-span">Email</span></label
       >
       <input
@@ -32,7 +32,7 @@
         alt="Your Name"
         placeholder=" "
       />
-      <label class="contact-form_input-label" for="name"
+      <label class="contact-form_input-label" for="input-2"
         ><span class="contact-form_input-label-span">Name</span></label
       >
       <textarea
@@ -42,7 +42,7 @@
         alt="Your Message"
         placeholder=" "
       ></textarea>
-      <label class="contact-form_input-label" for="message"
+      <label class="contact-form_input-label" for="textarea-default"
         ><span class="contact-form_input-label-span">Your Message</span></label
       >
 
