@@ -1,7 +1,9 @@
 <template>
   <div class="footer">
     <h2>Site created by Nick Leslie © 2020</h2>
-    <a href="https://github.com/ncpleslie/PersonalWebsite">Source code avaliable here</a>
+    <a href="https://github.com/ncpleslie/PersonalWebsite"
+      >Source code avaliable here</a
+    >
   </div>
 </template>
 
@@ -9,7 +11,7 @@
 export default {};
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .footer {
   height: 5rem;
   display: flex;

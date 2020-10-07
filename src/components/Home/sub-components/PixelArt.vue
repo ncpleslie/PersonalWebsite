@@ -14,7 +14,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .canvas {
   box-shadow: 120px 20px 0 0 rgba(63, 81, 181, 1),
     130px 20px 0 0 rgba(63, 81, 181, 1), 140px 20px 0 0 rgba(63, 81, 181, 1),

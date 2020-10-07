@@ -23,7 +23,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 nav {
   display: flex;
   justify-content: space-between;
