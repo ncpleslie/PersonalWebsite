@@ -31,7 +31,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 h2 {
   background: linear-gradient(90deg, var(--accent1), var(--accent2));
   text-shadow: none;

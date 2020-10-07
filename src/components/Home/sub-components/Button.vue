@@ -54,7 +54,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .project-card-button {
   padding: 0.5rem 1rem 0.5rem 1rem;
   border-radius: 0px;

@@ -18,7 +18,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .loading {
   color: #fff;
   height: 50vh;

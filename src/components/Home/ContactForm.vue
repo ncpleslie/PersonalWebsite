@@ -67,7 +67,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .contact {
   margin-top: 2rem;
   padding-bottom: 2rem;
